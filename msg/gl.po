@@ -5,104 +5,107 @@ msgstr ""
 "Project-Id-Version: cycle-0.3.0-1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-04-13 22:11+0000\n"
-"PO-Revision-Date: 2005-04-18 21:29+0200\n"
-"Last-Translator: Susana Sotelo Docío <sdocio@gmail.com>\n"
+"PO-Revision-Date: 2005-06-14 16:32+0100\n"
+"Last-Translator: Miriam Ruiz <little_miry@yahoo.es>\n"
 "Language-Team: Galician\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
-"Content-Transfer-Encoding: 8-bit\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Generated-By: pygettext.py 1.4\n"
 
-#: cal_year.py:73
-msgid "Begin of cycle"
+#: cal_year.py:82
+msgid "Beginning of cycle"
 msgstr "Comezo de cycle"
 
-#: cal_year.py:75 dialogs.py:331 dialogs.py:452
+#: cal_year.py:84
+#: dialogs.py:358
+#: dialogs.py:485
 msgid "1-st tablet"
 msgstr "1ª pílula"
 
-#: cal_year.py:78
+#: cal_year.py:87
 msgid "Conception"
 msgstr "Concepción"
 
-#: cal_year.py:80
+#: cal_year.py:89
 msgid "Note"
 msgstr "Nota"
 
-#: cal_year.py:509
-msgid "tablet N "
+#: cal_year.py:544
+msgid "tablet no. "
 msgstr "pílula N "
 
-#: cal_year.py:511
+#: cal_year.py:546
 msgid " or pause"
 msgstr " ou pausa"
 
-#: cal_year.py:513 dialogs.py:333 dialogs.py:454
+#: cal_year.py:548
+#: dialogs.py:360
+#: dialogs.py:487
 msgid "next 1-st tablet"
 msgstr "seguinte primeira pílula"
 
-#: cal_year.py:551
-msgid " day of gestation, "
-msgstr " día de xestación, "
+#: cal_year.py:589
+#, python-format
+msgid "%s day of gestation"
+msgstr "%s día de xestación"
 
-#: cal_year.py:552
-msgid " week"
-msgstr " semana"
+#: cal_year.py:590
+msgid "1 week"
+msgstr "1 semana"
 
-#: cal_year.py:553
-msgid " weeks"
-msgstr " semanas"
+#: cal_year.py:591
+#, python-format
+msgid "%s weeks"
+msgstr "%s semanas"
 
-#: cal_year.py:555
-msgid " day"
-msgstr "día"
+#: cal_year.py:593
+msgid "1 day"
+msgstr "1 día"
 
-#: cal_year.py:556 cal_year.py:563
-msgid " days"
-msgstr "días"
+#: cal_year.py:594
+#, python-format
+msgid "%s days"
+msgstr "%s días"
 
-#: cal_year.py:562
-msgid " day of period from "
-msgstr " día do período dende "
+#: cal_year.py:603
+#, python-format
+msgid "%s day of period from %s to %s"
+msgstr "%s día do período dende %s ata %s"
 
-#: cal_year.py:562
-msgid " to "
-msgstr " ata "
+#: cal_year.py:604
+#, python-format
+msgid "length %s days"
+msgstr "lonxitude %s días"
 
-#: cal_year.py:563
-#, fuzzy
-msgid " length "
-msgstr " lonxitude "
-
-#: cycle.py:37 cycle.py:49
-msgid "try decode this string"
-msgstr "intenta descodificar esta cadea"
-
-#: cycle.py:91
+#: cycle.py:100
 msgid "Dec Year"
 msgstr "Ano anterior"
 
-#: cycle.py:94
+#: cycle.py:103
 msgid "Current Year"
 msgstr "Ano actual"
 
-#: cycle.py:97
+#: cycle.py:106
 msgid "Inc Year"
 msgstr "Ano seguinte"
 
-#: cycle.py:103 dialogs.py:319
+#: cycle.py:112
+#: dialogs.py:346
 msgid "Legend"
 msgstr "Lenda"
 
-#: cycle.py:106 dialogs.py:17
+#: cycle.py:115
+#: dialogs.py:17
 msgid "Settings"
 msgstr "Configuración"
 
-#: cycle.py:109 cycle.py:148
+#: cycle.py:118
+#: cycle.py:157
 msgid "Help"
 msgstr "Axuda"
 
-#: cycle.py:117
+#: cycle.py:126
 msgid "Exit"
 msgstr "Saír"
 
@@ -114,174 +117,209 @@ msgstr "Lonxitude do ciclo"
 msgid " by average"
 msgstr " de media"
 
-#: dialogs.py:36
+#: dialogs.py:37
 msgid " days in cycle"
 msgstr " días no ciclo"
 
-#: dialogs.py:40
+#: dialogs.py:41
 msgid "Display"
 msgstr "Amosar"
 
-#: dialogs.py:41
+#: dialogs.py:42
 msgid "safe sex days"
 msgstr "días de sexo seguro"
 
-#: dialogs.py:41
+#: dialogs.py:42
 msgid "fertile days"
 msgstr "días fértiles"
 
-#: dialogs.py:41
+#: dialogs.py:42
 msgid "both"
 msgstr "ambos"
 
-#: dialogs.py:47
+#: dialogs.py:48
 msgid "First week day"
 msgstr "Primeiro día da semana"
 
-#: dialogs.py:48
+#: dialogs.py:49
 msgid "monday"
 msgstr "luns"
 
-#: dialogs.py:48
+#: dialogs.py:49
 msgid "sunday"
 msgstr "domingo"
 
-#: dialogs.py:55
+#: dialogs.py:56
 msgid "Colours"
 msgstr "Cores"
 
-#: dialogs.py:56
+#: dialogs.py:57
 msgid "Change password"
 msgstr "Cambiar o contrasinal"
 
-#: dialogs.py:70 dialogs.py:137 dialogs.py:217 dialogs.py:336 dialogs.py:370
-#: dialogs.py:423 dialogs.py:458
+#: dialogs.py:73
+#: dialogs.py:142
+#: dialogs.py:228
+#: dialogs.py:363
+#: dialogs.py:398
+#: dialogs.py:455
+#: dialogs.py:491
 msgid "Ok"
 msgstr "Aceptar"
 
-#: dialogs.py:74 dialogs.py:141 dialogs.py:221 dialogs.py:374 dialogs.py:466
+#: dialogs.py:78
+#: dialogs.py:147
+#: dialogs.py:233
+#: dialogs.py:403
+#: dialogs.py:501
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: dialogs.py:91
+#: dialogs.py:96
 msgid "Period of cycle is invalid!"
 msgstr "O período do ciclo non é válido!"
 
-#: dialogs.py:92 dialogs.py:159 dialogs.py:255 dialogs.py:308
+#: dialogs.py:97
+#: dialogs.py:166
+#: dialogs.py:268
+#: dialogs.py:335
 msgid "Error!"
 msgstr "Erro!"
 
-#: dialogs.py:117 dialogs.py:244
+#: dialogs.py:122
+#: dialogs.py:257
 msgid "Password"
 msgstr "Contrasinal"
 
-#: dialogs.py:122
+#: dialogs.py:127
 msgid "Enter your password"
 msgstr "Introduce o contrasinal"
 
-#: dialogs.py:128
+#: dialogs.py:133
 msgid "Once more..."
 msgstr "Unha vez máis..."
 
-#: dialogs.py:154
+#: dialogs.py:161
 msgid "Password must be not EMPTY!"
 msgstr "O contrasinal non pode estar BALEIRO!"
 
-#: dialogs.py:156
+#: dialogs.py:163
 msgid "Entering password don't match!"
 msgstr "Os contrasinais introducidos non coinciden!"
 
-#: dialogs.py:172
+#: dialogs.py:179
 msgid "Login"
 msgstr "Nome de usuaria"
 
-#: dialogs.py:182
+#: dialogs.py:189
 msgid "empty"
 msgstr "baleiro"
 
-#: dialogs.py:197
+#: dialogs.py:205
 msgid "Your name"
 msgstr "Nome"
 
-#: dialogs.py:211
+#: dialogs.py:221
 msgid "Add user"
 msgstr "Engadir usuaria"
 
-#: dialogs.py:244
+#: dialogs.py:257
 msgid ", enter you password:"
 msgstr ", introduce o teu contrasinal:"
 
-#: dialogs.py:254
+#: dialogs.py:267
 msgid "Password is invalid!"
 msgstr "O contrasinal non é válido!"
 
-#: dialogs.py:280
+#: dialogs.py:302
 msgid ""
-"This program is not a reliable contraceptive method. Neither does it help to prevent sexually transmitted diseases like HIV/AIDS.\n"
+"This program is not a reliable contraceptive method.\n"
+"Neither does it help to prevent sexually transmitted diseases\n"
+"like HIV/AIDS.\n"
 "\n"
-"It is just an electronic means of keeping track of some of your medical data and extracting some statistical conclusions from them. You cannot consider this program as a substitute for your gynecologist in any way."
+"It is just an electronic means of keeping track\n"
+"of some of your medical data and extracting some statistical\n"
+"conclusions from them. You cannot consider this program as a\n"
+"substitute for your gynecologist in any way."
 msgstr ""
-"Este programa non é un método contraceptivo fiábel. Tampouco pode servir de axuda na prevención de enfermidades de transmisión sexual coma a SIDA.\n"
+"Este programa non é un método contraceptivo fiábel.\n"
+"Tampouco pode servir de axuda na prevención de\n"
+"enfermidades de transmisión sexual coma a VIH/SIDA.\n"
 "\n"
-"Tan só é un medio electrónico que permite realizar un seguemento dalgúns dos teus datos médicos e extraer algunhas conclusións estatísticas a partires deles. De ningunha maneira podes considerar este programa como un substituto do teu xinecólogo."
+"Tan só é un medio electrónico que permite realizar un\n"
+"seguemento dalgúns dos teus datos médicos e extraer\n"
+"algunhas conclusións estatísticas a partires deles.\n"
+"De ningunha maneira podes considerar este programa como\n"
+"un substituto do teu xinecólogo."
 
-#: dialogs.py:286
+#: dialogs.py:308
 msgid "Enter you name:"
 msgstr "Introduce o teu nome:"
 
-#: dialogs.py:286
+#: dialogs.py:308
 msgid "New user"
 msgstr "Nova usuaria"
 
-#: dialogs.py:305
-#, fuzzy
+#: dialogs.py:330
 msgid " - already exists!"
 msgstr " - xa existe!"
 
-#: dialogs.py:307
+#: dialogs.py:332
+msgid " - has invalid characters!"
+msgstr " - ten caracteres non válidos!"
+
+#: dialogs.py:334
 msgid "Name must be not EMPTY"
 msgstr "O nome non pode estar BALEIRO"
 
-#: dialogs.py:324
+#: dialogs.py:351
 msgid "today"
 msgstr "hoxe"
 
-#: dialogs.py:325 dialogs.py:446
+#: dialogs.py:352
+#: dialogs.py:479
 msgid "begin of cycle"
 msgstr "comezo do ciclo"
 
-#: dialogs.py:326 dialogs.py:447
+#: dialogs.py:353
+#: dialogs.py:480
 msgid "prognosis of cycle begin"
 msgstr "comezo da prognose do ciclo"
 
-#: dialogs.py:327 dialogs.py:448
+#: dialogs.py:354
+#: dialogs.py:481
 msgid "conception"
 msgstr "concepción"
 
-#: dialogs.py:328 dialogs.py:449
+#: dialogs.py:355
+#: dialogs.py:482
 msgid "safe sex"
 msgstr "sexo seguro"
 
-#: dialogs.py:329 dialogs.py:450
+#: dialogs.py:356
+#: dialogs.py:483
 msgid "fertile"
 msgstr "fértil"
 
-#: dialogs.py:330 dialogs.py:451
-msgid "ovule, birth"
+#: dialogs.py:357
+#: dialogs.py:484
+msgid "ovulation, birth"
 msgstr "óvulo, nacemento"
 
-#: dialogs.py:332 dialogs.py:453
-msgid "tablets N 22-28 or pause"
+#: dialogs.py:359
+#: dialogs.py:486
+msgid "tablets no. 22-28 or pause"
 msgstr "pílulas N 22-28 ou pausa"
 
-#: dialogs.py:378
+#: dialogs.py:408
 msgid "Remove"
 msgstr "Eliminar"
 
-#: dialogs.py:436
+#: dialogs.py:469
 msgid "Colours settings"
 msgstr "Configuración das cores"
 
-#: dialogs.py:462
+#: dialogs.py:496
 msgid "By default"
 msgstr "Por defecto"
+

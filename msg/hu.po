@@ -1,162 +1,163 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR ORGANIZATION
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translation of Cycle to Hungarian
+# Copyright (C) 2005 HegedШs Hajnalka
+# This file is distributed under the same license as the PACKAGE package.
+# HegedШs Hajnalka <heha@aszt.inf.elte.hu>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: Fri Apr 19 10:56:14 2002\n"
-"PO-Revision-Date: 2005-06-14 16:37+0100\n"
-"Last-Translator: Miriam Ruiz <little_miry@yahoo.es>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: hu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-06-09 14:11+0000\n"
+"PO-Revision-Date: 2005-06-14 16:55+0100\n"
+"Last-Translator: HegedШs Hajnalka <heha@aszt.inf.elte.hu>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=koi8-r\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: pygettext.py 1.4\n"
 
 #: cal_year.py:82
 msgid "Beginning of cycle"
-msgstr "Начало цикла"
+msgstr "A ciklus eleje"
 
 #: cal_year.py:84
 #: dialogs.py:358
 #: dialogs.py:485
 msgid "1-st tablet"
-msgstr "1-ая таблетка"
+msgstr "1. tabletta"
 
 #: cal_year.py:87
 msgid "Conception"
-msgstr "Беременность"
+msgstr "Fogamzц║s"
 
 #: cal_year.py:89
 msgid "Note"
-msgstr "Заметка"
+msgstr "Megjegyzц╘s"
 
 #: cal_year.py:544
 msgid "tablet no. "
-msgstr "таблетка N "
+msgstr ". tabletta"
 
 #: cal_year.py:546
 msgid " or pause"
-msgstr " или перерыв"
+msgstr "vagy szц╪net"
 
 #: cal_year.py:548
 #: dialogs.py:360
 #: dialogs.py:487
 msgid "next 1-st tablet"
-msgstr "следующая 1-ая таблетка"
+msgstr "a kц╤vetkezе▒ 1. tabletta"
 
 #: cal_year.py:589
 #, python-format
 msgid "%s day of gestation"
-msgstr "%s день беременности"
+msgstr "A terhessц╘g %s. napja"
 
 #: cal_year.py:590
 msgid "1 week"
-msgstr "1 нед."
+msgstr "1 hц╘t"
 
 #: cal_year.py:591
 #, python-format
 msgid "%s weeks"
-msgstr "%s нед."
+msgstr "%s hц╘t"
 
 #: cal_year.py:593
 msgid "1 day"
-msgstr "1 дн."
+msgstr "1 nap"
 
 #: cal_year.py:594
 #, python-format
 msgid "%s days"
-msgstr "%s дн."
+msgstr "%s nap"
 
 #: cal_year.py:603
 #, python-format
 msgid "%s day of period from %s to %s"
-msgstr "%s -й день периода с %s по %s"
+msgstr "A ciklus %s. napja. Elsе▒ nap: %s,  utolsцЁ nap: %s"
 
 #: cal_year.py:604
 #, python-format
 msgid "length %s days"
-msgstr "продолжительностью %s дн."
+msgstr "hossz: %s nap"
 
 #: cycle.py:100
 msgid "Dec Year"
-msgstr "Год назад"
+msgstr "Elе▒zе▒ ц╘v"
 
 #: cycle.py:103
 msgid "Current Year"
-msgstr "Текущий год"
+msgstr "Idei ц╘v"
 
 #: cycle.py:106
 msgid "Inc Year"
-msgstr "Год вперед"
+msgstr "Kц╤vetkezе▒ ц╘v"
 
 #: cycle.py:112
 #: dialogs.py:346
 msgid "Legend"
-msgstr "Легенда"
+msgstr "Jelmagyarц║zat"
 
 #: cycle.py:115
 #: dialogs.py:17
 msgid "Settings"
-msgstr "Установки"
+msgstr "Beц║llц╜tц║sok"
 
 #: cycle.py:118
 #: cycle.py:157
 msgid "Help"
-msgstr "Помощь"
+msgstr "Segц╜tsц╘g"
 
 #: cycle.py:126
 msgid "Exit"
-msgstr "Выход"
+msgstr "Kilц╘pц╘s"
 
 #: dialogs.py:22
 msgid "Length of cycle"
-msgstr "Прогноз периода"
+msgstr "A ciklus hossza"
 
 #: dialogs.py:24
 msgid " by average"
-msgstr "по среднему"
+msgstr " ц║tlag alapjц║n"
 
 #: dialogs.py:37
 msgid " days in cycle"
-msgstr " дней в цикле"
+msgstr " napos ciklus"
 
 #: dialogs.py:41
 msgid "Display"
-msgstr "Показывать"
+msgstr "Meglenц╜tц╘s"
 
 #: dialogs.py:42
 msgid "safe sex days"
-msgstr "дни безопасного секса"
+msgstr "a bizonsц║gos szex napjai"
 
 #: dialogs.py:42
 msgid "fertile days"
-msgstr "фертильные дни"
+msgstr "termц╘keny napok"
 
 #: dialogs.py:42
 msgid "both"
-msgstr "все"
+msgstr "mindkettе▒"
 
 #: dialogs.py:48
 msgid "First week day"
-msgstr "Первый день недели"
+msgstr "A hц╘t elsе▒ napja"
 
 #: dialogs.py:49
 msgid "monday"
-msgstr "понедельник"
+msgstr "hц╘tfе▒"
 
 #: dialogs.py:49
 msgid "sunday"
-msgstr "воскресенье"
+msgstr "vasц║rnap"
 
 #: dialogs.py:56
 msgid "Colours"
-msgstr "Цвета"
+msgstr "Szц╜nek"
 
 #: dialogs.py:57
 msgid "Change password"
-msgstr "Изменить пароль"
+msgstr "A jelszцЁ megvц║ltoztatц║sa"
 
 #: dialogs.py:73
 #: dialogs.py:142
@@ -166,7 +167,7 @@ msgstr "Изменить пароль"
 #: dialogs.py:455
 #: dialogs.py:491
 msgid "Ok"
-msgstr "Да"
+msgstr "Ok"
 
 #: dialogs.py:78
 #: dialogs.py:147
@@ -174,63 +175,63 @@ msgstr "Да"
 #: dialogs.py:403
 #: dialogs.py:501
 msgid "Cancel"
-msgstr "Отмена"
+msgstr "Mц╘gsem"
 
 #: dialogs.py:96
 msgid "Period of cycle is invalid!"
-msgstr "Некорректный период цикла!"
+msgstr "A ciklus hossza ц╘rvц╘nytelen!"
 
 #: dialogs.py:97
 #: dialogs.py:166
 #: dialogs.py:268
 #: dialogs.py:335
 msgid "Error!"
-msgstr "Ошибка!"
+msgstr "Hiba!"
 
 #: dialogs.py:122
 #: dialogs.py:257
 msgid "Password"
-msgstr "Пароль"
+msgstr "JelszцЁ"
 
 #: dialogs.py:127
 msgid "Enter your password"
-msgstr "Введите Ваш пароль"
+msgstr "ц█rja be a jelszavц║t"
 
 #: dialogs.py:133
 msgid "Once more..."
-msgstr "Еще раз..."
+msgstr "Mц╘g egyszer..."
 
 #: dialogs.py:161
 msgid "Password must be not EMPTY!"
-msgstr "Пароль не может быть пустым"
+msgstr "A jelszцЁ mezе▒ ment lehet ц╪res!"
 
 #: dialogs.py:163
 msgid "Entering password don't match!"
-msgstr "Гм, пароли не совпадают."
+msgstr "A beц╜rt jelszavak nem egyeznek!"
 
 #: dialogs.py:179
 msgid "Login"
-msgstr "Добро пожаловать"
+msgstr "Bejelentkezц╘s"
 
 #: dialogs.py:189
 msgid "empty"
-msgstr "пусто"
+msgstr "ц╪res"
 
 #: dialogs.py:205
 msgid "Your name"
-msgstr "Ваше имя"
+msgstr "Nц╘v:"
 
 #: dialogs.py:221
 msgid "Add user"
-msgstr "Добавить пользователя"
+msgstr "Felhasznц║lцЁ hozzц║adц║sa"
 
 #: dialogs.py:257
 msgid ", enter you password:"
-msgstr ", введите Ваш пароль:"
+msgstr ", ц╜rja be a jelszavц║t:"
 
 #: dialogs.py:267
 msgid "Password is invalid!"
-msgstr "Неправильный пароль!"
+msgstr "ц╘rvц╘nytelen jelszцЁ"
 
 #: dialogs.py:302
 msgid ""
@@ -243,78 +244,83 @@ msgid ""
 "conclusions from them. You cannot consider this program as a\n"
 "substitute for your gynecologist in any way."
 msgstr ""
-"Эта программа не является надежным методом контрацепции.\n"
-"Она также не предохраняет от болезней, передающихся половым путем.\n"
-"Вы не можете считать эту программу заменой вашему гинекологу."
+"A program hasznц║lata nem minе▒sц╪l megbе╨zhatцЁ\n"
+"fogamzц║sgц║tlц║si mцЁdszernek ц╘s a szexuц║lis ц╨ton terjedе▒\n"
+"betegsц╘gek (pl. HIV/AIDS) ellen sem jelent vц╘delmet.\n"
+"\n"
+"A program kizц║rцЁlagos cц╘lja nц╘hц║ny egц╘szsц╘gц╪gyi adat\n"
+"elektronikus nyilvц║ntartц║sa ц╘s az ezekbе▒l megц║llapц╜thatцЁ\n"
+"statszitikai kц╤vetkeztetц╘sek levonц║sa. Semmilyen mцЁdon nem\n"
+"helyettesц╜ti a nе▒gyцЁgyц║szati vizsgц║latot / tanц║csadц║st."
 
 #: dialogs.py:308
 msgid "Enter you name:"
-msgstr "Наберите Ваше имя"
+msgstr "ц█rja be a nevц╘t:"
 
 #: dialogs.py:308
 msgid "New user"
-msgstr "Новый пользователь"
+msgstr "ц j felhasznц║lцЁ"
 
 #: dialogs.py:330
 msgid " - already exists!"
-msgstr " - уже есть!"
+msgstr " - mц║r lц╘tezik!"
 
 #: dialogs.py:332
 msgid " - has invalid characters!"
-msgstr ""
+msgstr " - ц╘rvц╘nytelen karaktereket tartalmaz!"
 
 #: dialogs.py:334
 msgid "Name must be not EMPTY"
-msgstr "Имя может быть пустым"
+msgstr "A nц╘v nem lehet ц╪res"
 
 #: dialogs.py:351
 msgid "today"
-msgstr "сегодня"
+msgstr "ma"
 
 #: dialogs.py:352
 #: dialogs.py:479
 msgid "begin of cycle"
-msgstr "начало цикла"
+msgstr "a ciklus kezdete"
 
 #: dialogs.py:353
 #: dialogs.py:480
 msgid "prognosis of cycle begin"
-msgstr "прогнозируемое начало цикла"
+msgstr "a ciklus vц║rhatцЁ kezdete"
 
 #: dialogs.py:354
 #: dialogs.py:481
 msgid "conception"
-msgstr "беременность"
+msgstr "fogamzц║s"
 
 #: dialogs.py:355
 #: dialogs.py:482
 msgid "safe sex"
-msgstr "безопасный секс"
+msgstr "biztonsц║gos szex"
 
 #: dialogs.py:356
 #: dialogs.py:483
 msgid "fertile"
-msgstr "фертильные дни"
+msgstr "termц╘keny"
 
 #: dialogs.py:357
 #: dialogs.py:484
-msgid "ovule, birth"
-msgstr "овуляция, рождение"
+msgid "ovulation, birth"
+msgstr "ovulц║ciцЁ, szц╪lц╘s"
 
 #: dialogs.py:359
 #: dialogs.py:486
-msgid "tablets N 22-28 or pause"
-msgstr "таблетки N 22-28 или перерыв"
+msgid "tablets no. 22-28 or pause"
+msgstr "22-28. tablettц║k vagy szц╪net"
 
 #: dialogs.py:408
 msgid "Remove"
-msgstr "Удалить"
+msgstr "Tц╤rlц╘s"
 
 #: dialogs.py:469
 msgid "Colours settings"
-msgstr "Настройка цветов"
+msgstr "Szц╜nek beц║llц╜tц║sa"
 
 #: dialogs.py:496
 msgid "By default"
-msgstr "По умолчанию"
+msgstr "Alapц╘rtelmezett"
 

@@ -70,7 +70,7 @@ class Month_Cal(wx.calendar.CalendarCtrl):
 	    menu = wx.Menu()
 	    menu.Append(1, d.Format('%d %B'))
 	    menu.AppendSeparator()
-	    menu.AppendCheckItem(2, _('Begin of cycle'))
+	    menu.AppendCheckItem(2, _('Beginning of cycle'))
 	    menu.Check(2,is_set_mark(d, MARK_BEGIN, d.GetYear()))
 	    menu.AppendCheckItem(5, _('1-st tablet'))
 	    menu.Check(5,is_set_mark(d, MARK_TABLET, d.GetYear()))
@@ -549,19 +549,18 @@ def info(day):
     if gestation:
 	k=(day-d2+wx.TimeSpan.Hours(1)).GetDays()+1
 	w=(k-1)/7
-	s+=" - "+str(k)+_(' day of gestation, ')+str(w)
-	if w == 1: s+=_(' week')
-	else: s+=_(' weeks')
+	s+=" - "+str(k)+_('% day of gestation, ')+str(w)
+	if w == 1: s+=_('1 week')
+	else: s+=_('% weeks')
 	s+=' + '+str(k-w*7)
-	if (k-w*7) == 1: s+=_(' day')
-	else: s+=_(' days')
+	if (k-w*7) == 1: s+=_('1 day')
+	else: s+=_('% days')
     else:
 	p=(d-d2+wx.TimeSpan.Hours(1)).GetDays()
 	k=(day-d2+wx.TimeSpan.Hours(1)).GetDays()+1
 
 	d=d-wx.DateSpan.Day()
-	s+=" - "+str(k)+_(' day of period from ')+d2.Format('%d %b')+_(' to ')+\
-	    d.Format('%d %b')+_(' length ')+str(p)+_(' days')
+    s+=" - "+_('%s day of period from %s to %s') % (str(k),d2.Format('%d %b'), d.Format('%d %b')) +' ' + _('length %s days') % (str(p))
     return s
 
 
@@ -630,6 +629,52 @@ def report_year(year):
     s+='</pre></body></html>'
     print s
     return s
+
+def report_year_ical(year, fileobj):
+    import socket
+    hostname = socket.gethostname()
+
+    def get_string(mark):
+        if mark & MARK_LAST: return _("Conception")
+        elif mark & MARK_BEGIN: return _("Beginning of cycle")
+        elif mark & MARK_PROG: return _("Probable beginning of cycle")
+        elif mark & MARK_TABLET: return _("1-st tablet")
+        elif mark & MARK_OVUL: return _("Ovulation")
+        elif mark & MARK_BIRTH: return _("Birth")
+        else: return ""
+
+    def make_event(description, mark, date):
+        date2 = date + wx.TimeSpan.Days(1)
+        datestr = "%04d%02d%02d" % (
+            date.GetYear(), date.GetMonth() + 1, date.GetDay())
+        datestr2 = "%04d%02d%02d" % (
+            date2.GetYear(), date2.GetMonth() + 1, date2.GetDay())
+        uid = "UID:cycle-%d-%sZ@%s" % (mark, datestr, hostname)
+        return ["BEGIN:VEVENT", uid,
+                "DTSTART;VALUE=DATE:" + datestr,
+                "DTEND;VALUE=DATE:" + datestr2,
+                "SUMMARY:" + description,
+                "DESCRIPTION:" + description,
+                "CLASS:PUBLIC",
+                "END:VEVENT"]
+
+    s = ["BEGIN:VCALENDAR",
+         "CALSCALE:GREGORIAN",
+         "PRODID:-//Cycle//NONSGML Cycle//EN",
+         "VERSION:2.0"]
+
+    days = cycle.mark.items()
+    days.sort()
+    for day, marks in days:
+        if get_string(marks):
+            d = wx.DateTime()
+            d.SetYear(year)
+            d.SetToYearDay(day)
+            s.extend(make_event(get_string(marks), marks, d))
+
+    s.append("END:VCALENDAR")
+
+    print >>fileobj, "\n".join(s)
 
 #-------------------- Add import --------------------
 from dialogs import Note_Dlg 

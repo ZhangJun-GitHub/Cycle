@@ -15,7 +15,7 @@ msgstr ""
 
 
 #: ../cal_year.py:70
-msgid "Begin of cycle"
+msgid "Beginning of cycle"
 msgstr "Zyklusbeginn"
 
 #: ../cal_year.py:72 ../dialogs.py:313
@@ -31,7 +31,7 @@ msgid "Note"
 msgstr "Notiz"
 
 #: ../cal_year.py:505
-msgid "tablet N "
+msgid "tablet no. "
 msgstr "Pille N "
 
 #: ../cal_year.py:507
@@ -248,11 +248,11 @@ msgid "fertile"
 msgstr "fruchtbar"
 
 #: ../dialogs.py:312
-msgid "ovule, birth"
+msgid "ovulation, birth"
 msgstr "Geburt"
 
 #: ../dialogs.py:314
-msgid "tablets N 22-28 or pause"
+msgid "tablets no. 22-28 or pause"
 msgstr "Pillen 22-28 oder Pause"
 
 #: ../dialogs.py:360

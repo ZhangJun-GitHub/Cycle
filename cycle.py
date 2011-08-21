@@ -104,9 +104,12 @@ class MyFrame(wx.Frame):
 
 	tb.SetToolSeparation(50)
 	tb.AddSeparator()
-	
+
 	SetToolPath(self, tb, 40, os.path.join(bitmaps_dir,'legend.png'), _('Legend'))
 	wx.EVT_TOOL(self, 40, self.Legend)
+	
+	SetToolPath(self, tb, 45, os.path.join(bitmaps_dir,'export.png'), _('Export to iCal'))
+	wx.EVT_TOOL(self, 45, self.Export)
 	
 	SetToolPath(self, tb, 50, os.path.join(bitmaps_dir,'set.png'), _('Settings'))
 	wx.EVT_TOOL(self, 50, self.Settings)
@@ -136,6 +139,18 @@ class MyFrame(wx.Frame):
 	dlg = Legend_Dlg(self)
         dlg.ShowModal()
 	dlg.Destroy()
+
+    def Export(self, event):
+        dlg = wx.FileDialog(self, _("Export to iCal"),
+                            style=wx.SAVE)
+
+        if dlg.ShowModal() == wx.ID_OK:
+            try:
+                fileobj = file(dlg.GetPath(), "w")
+                report_year_ical(self.cal.year, fileobj)
+            except (IOError, OSError), err:
+                wx.MessageDialog(
+                    self, str(err), _("Unable to export"), style=wx.OK).ShowModal()
         
     def Settings(self,event):
 	dlg = Settings_Dlg(self)

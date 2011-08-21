@@ -181,20 +181,20 @@ def get_users():
     users=[] #array of (user, file) name
     p, f_name=get_f_name()
     if os.path.exists(p):
-	files=os.listdir(p)
-    for f in files:
-	fd=open(os.path.join(p, f),"rb")
-	tmp=fd.read(len(magic_str))
-	if tmp == magic_str:
-	    tmp=fd.read(100)
-	    n=tmp.find("===") #find end string
-	    if n <> -1:
-		users.append((cPickle.loads(tmp[:n]), f))
-	else: # old format, user_name=file_name
-	    users.append((f,f))
-#    if not users:
-#	users=[(_('empty'),"empty")]
-    users.sort()
+        files=os.listdir(p)
+        for f in files:
+            fd=open(os.path.join(p, f),"rb")
+            tmp=fd.read(len(magic_str))
+            if tmp == magic_str:
+                tmp=fd.read(100)
+                n=tmp.find("===") #find end string
+                if n <> -1:
+                    users.append((cPickle.loads(tmp[:n]), f))
+                else: # old format, user_name=file_name
+                    users.append((f,f))
+        #if not users:
+        #users=[(_('empty'),"empty")]
+        users.sort()
     return users
 
 #---------------------------------------------------------------------------
@@ -320,12 +320,12 @@ def get_new_file_name():
 def ask_name(parent=None):
     # nobody, it is first login
     wx.MessageBox(
-	_("This program is not a reliable contraceptive method. "
-        "Neither does it help to prevent sexually transmitted diseases "
-        "like HIV/AIDS.\n\nIt is just an electronic means of keeping track "
-        "of some of your medical data and extracting some statistical "
-        "conclusions from them. You cannot consider this program as a "
-        "substitute for your gynecologist in any way."))
+        _("This program is not a reliable contraceptive method.\n"
+        "Neither does it help to prevent sexually transmitted diseases\n"
+        "like HIV/AIDS.\n\nIt is just an electronic means of keeping track\n"
+        "of some of your medical data and extracting some statistical\n"
+        "conclusions from them. You cannot consider this program as a\n"
+        "substitute for your gynecologist in any way."))	
     dlg = wx.TextEntryDialog(parent, _('Enter you name:'),_('New user'),'',
 	 style=wx.OK | wx.CANCEL)
     while dlg.ShowModal()==wx.ID_OK:
@@ -375,9 +375,9 @@ class Legend_Dlg(wx.Dialog):
 	self._add(box, _('conception'), cycle.colour_set['conception'])
 	self._add(box, _('safe sex'), cycle.colour_set['safe sex'])
 	self._add(box, _('fertile'), cycle.colour_set['fertile'])
-	self._add(box, _('ovule, birth'), cycle.colour_set['ovule'])
+	self._add(box, _('ovulation, birth'), cycle.colour_set['ovule'])
 	self._add(box, _('1-st tablet'), cycle.colour_set['1-st tablet'])
-	self._add(box, _('tablets N 22-28 or pause'), cycle.colour_set['pause'])
+	self._add(box, _('tablets no. 22-28 or pause'), cycle.colour_set['pause'])
 	self._add(box, _('next 1-st tablet'), cycle.colour_set['next 1-st tablet'])
 	
 	i=wx.NewId()
@@ -496,9 +496,9 @@ class Colours_Dlg(wx.Dialog):
 	self._add(box, _('conception'), 'conception')
 	self._add(box, _('safe sex'), 'safe sex')
 	self._add(box, _('fertile'), 'fertile')
-	self._add(box, _('ovule, birth'), 'ovule')
+	self._add(box, _('ovulation, birth'), 'ovule')
 	self._add(box, _('1-st tablet'), '1-st tablet')
-	self._add(box, _('tablets N 22-28 or pause'), 'pause')
+	self._add(box, _('tablets no. 22-28 or pause'), 'pause')
 	self._add(box, _('next 1-st tablet'), 'next 1-st tablet')
 	
 	b1=wx.BoxSizer(wx.HORIZONTAL)

@@ -1,0 +1,316 @@
+# Swedish translation of cycle.
+# Copyright (C) YEAR ORGANIZATION
+# Daniel Nylander <po@danielnylander.se>, 2005.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: cycle 0.3.1-2\n"
+"POT-Creation-Date: Sat Apr 30 22:33:29 2005\n"
+"PO-Revision-Date: 2006-01-09 05:26+0100\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: cal_year.py:73
+msgid "Beginning of cycle"
+msgstr "Början av cykel"
+
+#: cal_year.py:75
+#: dialogs.py:379
+#: dialogs.py:500
+msgid "1-st tablet"
+msgstr "1:a pillret"
+
+#: cal_year.py:78
+msgid "Conception"
+msgstr "Befruktning"
+
+#: cal_year.py:80
+msgid "Note"
+msgstr "Anteckna"
+
+#: cal_year.py:510
+msgid "tablet N "
+msgstr "piller N "
+
+#: cal_year.py:512
+msgid " or pause"
+msgstr " eller paus"
+
+#: cal_year.py:514
+#: dialogs.py:381
+#: dialogs.py:502
+msgid "next 1-st tablet"
+msgstr "nästa 1:a piller"
+
+#: cal_year.py:552
+#, python-format
+msgid "% day of gestation, "
+msgstr "% dag för graviditet, "
+
+#: cal_year.py:553
+msgid "1 week"
+msgstr "1 vecka"
+
+#: cal_year.py:554
+msgid "% weeks"
+msgstr "% veckor"
+
+#: cal_year.py:556
+msgid "1 day"
+msgstr "1 dag"
+
+#: cal_year.py:557
+#, python-format
+msgid "% days"
+msgstr "% dagar"
+
+#: cal_year.py:563
+#, python-format
+msgid "%s day of period from %s to %s"
+msgstr "%s dag för period från %s till %s"
+
+#: cal_year.py:563
+#, python-format
+msgid "length %s days"
+msgstr "längd %s dagar"
+
+#: cycle.py:43
+#: cycle.py:57
+msgid "try decode this string"
+msgstr "försök avkoda denna sträng"
+
+#: cycle.py:96
+msgid "Dec Year"
+msgstr "Föregående år"
+
+#: cycle.py:99
+msgid "Current Year"
+msgstr "Nuvarande år"
+
+#: cycle.py:102
+msgid "Inc Year"
+msgstr "Nästa år"
+
+#: cycle.py:108
+#: dialogs.py:367
+msgid "Legend"
+msgstr "Förklaring"
+
+#: cycle.py:111
+#: dialogs.py:24
+msgid "Settings"
+msgstr "Inställningar"
+
+#: cycle.py:114
+#: cycle.py:153
+msgid "Help"
+msgstr "Hjälp"
+
+#: cycle.py:122
+msgid "Exit"
+msgstr "Avsluta"
+
+#: dialogs.py:29
+msgid "Length of cycle"
+msgstr "Cykelns längd"
+
+#: dialogs.py:31
+msgid " by average"
+msgstr " i genomsnitt"
+
+#: dialogs.py:43
+msgid " days in cycle"
+msgstr " dagar i cykeln"
+
+#: dialogs.py:47
+msgid "Display"
+msgstr "Visa"
+
+#: dialogs.py:48
+msgid "safe sex days"
+msgstr "dagar för säker sex"
+
+#: dialogs.py:48
+msgid "fertile days"
+msgstr "fertila dagar"
+
+#: dialogs.py:48
+msgid "both"
+msgstr "båda"
+
+#: dialogs.py:54
+msgid "First week day"
+msgstr "Första veckodagen"
+
+#: dialogs.py:55
+msgid "monday"
+msgstr "måndag"
+
+#: dialogs.py:55
+msgid "sunday"
+msgstr "söndag"
+
+#: dialogs.py:62
+msgid "Colours"
+msgstr "Färger"
+
+#: dialogs.py:63
+msgid "Change password"
+msgstr "Ändra lösenord"
+
+#: dialogs.py:77
+#: dialogs.py:144
+#: dialogs.py:253
+#: dialogs.py:384
+#: dialogs.py:418
+#: dialogs.py:471
+#: dialogs.py:506
+msgid "Ok"
+msgstr "Ok"
+
+#: dialogs.py:81
+#: dialogs.py:148
+#: dialogs.py:257
+#: dialogs.py:422
+#: dialogs.py:514
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: dialogs.py:98
+msgid "Period of cycle is invalid!"
+msgstr "Cykelns period är ogiltig!"
+
+#: dialogs.py:99
+#: dialogs.py:166
+#: dialogs.py:293
+#: dialogs.py:357
+msgid "Error!"
+msgstr "Fel!"
+
+#: dialogs.py:124
+#: dialogs.py:281
+msgid "Password"
+msgstr "Lösenord"
+
+#: dialogs.py:129
+msgid "Enter your password"
+msgstr "Ange ditt lösenord"
+
+#: dialogs.py:135
+msgid "Once more..."
+msgstr "En gång till..."
+
+#: dialogs.py:161
+msgid "Password must be not EMPTY!"
+msgstr "Lösenordet får inte vara TOMT!"
+
+#: dialogs.py:163
+msgid "Entering password don't match!"
+msgstr "Angivna lösenord stämmer inte överens!"
+
+#: dialogs.py:203
+msgid "Login"
+msgstr "Logga in"
+
+#: dialogs.py:232
+msgid "Your name"
+msgstr "Ditt namn"
+
+#: dialogs.py:247
+msgid "Add user"
+msgstr "Lägg till användare"
+
+#: dialogs.py:281
+msgid ", enter you password:"
+msgstr ", ange ditt lösenord:"
+
+#: dialogs.py:292
+msgid "Password is invalid!"
+msgstr "Lösenordet är ogiltigt!"
+
+#: dialogs.py:323
+msgid ""
+"This program is not a reliable contraceptive method.\n"
+"Neither does it help to prevent sexually transmitted diseases\n"
+"like HIV/AIDS.\n"
+"\n"
+"It is just an electronic means of keeping track\n"
+"of some of your medical data and extracting some statistical\n"
+"conclusions from them. You cannot consider this program as a\n"
+"substitute for your gynecologist in any way."
+msgstr ""
+"Det här programmet är inte en tillförlitlig preventivmetod. Det skyddar inte heller mot sexuellt överförbara sjukdomar såsom HIV/AIDS.\n"
+"\n"
+"Det är bara ett elektroniskt sätt att hålla reda på några av dina medicinska data och plocka ut vissa statistiska slutsatser från dem. Du kan inte på något sätt tro att detta program fungerar som en ersättare för din gynekolog."
+
+#: dialogs.py:329
+msgid "Enter you name:"
+msgstr "Ange ditt namn:"
+
+#: dialogs.py:329
+msgid "New user"
+msgstr "Ny användare"
+
+#: dialogs.py:354
+msgid " - already exists!"
+msgstr " - existerar redan!"
+
+#: dialogs.py:356
+msgid "Name must be not EMPTY"
+msgstr "Namnet får inte vara TOMT"
+
+#: dialogs.py:372
+msgid "today"
+msgstr "idag"
+
+#: dialogs.py:373
+#: dialogs.py:494
+msgid "begin of cycle"
+msgstr "början av cykel"
+
+#: dialogs.py:374
+#: dialogs.py:495
+msgid "prognosis of cycle begin"
+msgstr "prognos för cykelns början"
+
+#: dialogs.py:375
+#: dialogs.py:496
+msgid "conception"
+msgstr "befruktning"
+
+#: dialogs.py:376
+#: dialogs.py:497
+msgid "safe sex"
+msgstr "säker sex"
+
+#: dialogs.py:377
+#: dialogs.py:498
+msgid "fertile"
+msgstr "fertil"
+
+#: dialogs.py:378
+#: dialogs.py:499
+msgid "ovulation, birth"
+msgstr "ovule, födelse"
+
+#: dialogs.py:380
+#: dialogs.py:501
+msgid "tablets no. 22-28 or pause"
+msgstr "piller N 22-28 eller paus"
+
+#: dialogs.py:426
+msgid "Remove"
+msgstr "Ta bort"
+
+#: dialogs.py:484
+msgid "Colours settings"
+msgstr "Färginställningar"
+
+#: dialogs.py:510
+msgid "By default"
+msgstr "Standardvärde"
+
