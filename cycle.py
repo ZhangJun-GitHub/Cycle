@@ -70,7 +70,7 @@ class MyFrame(wx.Frame):
 		       wx.DefaultPosition, wx.Size(800, 600))
 
 	wx.Image_AddHandler(wx.PNGHandler())
-#	self.printer = wx.HtmlEasyPrinting()
+	self.printer = wx.html.HtmlEasyPrinting()
 	icon = wx.Icon(os.path.join(icons_dir,'mini/cycle.xpm'), wx.BITMAP_TYPE_XPM)
 	self.SetIcon(icon)
 
@@ -117,8 +117,8 @@ class MyFrame(wx.Frame):
 	SetToolPath(self, tb, 55, os.path.join(bitmaps_dir,'help.png'), _('Help'))
 	wx.EVT_TOOL(self, 55, self.Info)
 
-#	SetToolPath(self, tb, 57, os.path.join(bitmaps_dir,'help.png'), _('Print'))
-#	wx.EVT_TOOL(self, 57, self.test)
+	SetToolPath(self, tb, 57, os.path.join(bitmaps_dir,'help.png'), _('Print'))
+	wx.EVT_TOOL(self, 57, self.test)
 
 	tb.AddSeparator()
 
@@ -128,10 +128,9 @@ class MyFrame(wx.Frame):
 	tb.Realize()
 
     def test(self, event):
-	#rpt = report_year(self.cal.year)
-	#self.printer.PreviewText(rpt)
-	#self.printer.PreviewFile('2.html')
-	dlg = Colour_Dlg(self)
+	rpt = report_year(self.cal.year)
+	self.printer.PreviewText(rpt)
+	dlg = Colours_Dlg(self)
 	dlg.ShowModal()
 	dlg.Destroy()
 
