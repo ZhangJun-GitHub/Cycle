@@ -64,57 +64,70 @@ def Save_Cycle(name, password, file):
     f.write(data)
     f.close()
 
-def Load_Cycle(name='cycle', passwd='123', file='cycle'):
+def Load_Cycle(name, password, file):
     #TODO: detect if new AES or old rotor was used for save
+    #depad aes data = data[ 0:-ord(data[-1]) ]
     p, f_name=get_f_name(file)
     if os.path.isfile(f_name):
-        m=md5.new()
-        m.update(passwd)
+        return True
+
+    data = open( f_name, "rb" )
+
+    if data[:9] == "UserName=":
+        # second format, username precedes pickle
+        n = data.find("===")+len("===")
+        data = load_legacy( data[n:], password )
+    else:
+        try:
+            data = cPickle.loads(data) #data is third format 
+        except cPickle.UnpicklingError:
+            #must be first format
+            data = load_legacy( data, password )
+
+        objLoad = cPickle.loads( data )
+        data.close()
+        set_color_default()
+
+        for type, d in objLoad:
+            if type=='period':
+                cal_year.cycle.period=int(d)
+            elif type=='by_average':
+                cal_year.cycle.by_average=int(d)
+            elif type=='disp':
+                cal_year.cycle.disp=int(d)
+            elif type=='first_week_day':
+                cal_year.cycle.first_week_day=int(d)
+            elif type=='begin':
+                dt=wx.DateTimeFromDMY(d[0], d[1], d[2])
+                cal_year.cycle.begin.append(dt)
+            elif type=='last':
+                dt=wx.DateTimeFromDMY(d[0], d[1], d[2])
+                cal_year.cycle.last.append(dt)
+            elif type=='tablet':
+                dt=wx.DateTimeFromDMY(d[0], d[1], d[2])
+                cal_year.cycle.tablet.append(dt)
+            elif type=='note':
+                cal_year.cycle.note=d.copy()
+            elif type=='colour': # d=['item', (r,g,b)]
+                c = wx.Colour(d[1][0], d[1][1], d[1][2])
+                if cal_year.cycle.colour_set.has_key(d[0]):
+                    cal_year.cycle.colour_set[d[0]] = c
+                else:
+                    cal_year.cycle.colour_set.update({d[0]:c})
+
+            return True
+
+def load_legacy( data, password ):
+    #clean me up!
+        m=hashlib.md5(password)
         rt=rotor.newrotor(m.digest())
-        f=open(f_name,"rb")
-        tmp=f.read()
-        if tmp[:len("UserName=")] == "UserName=":
-            #new format
-            n=tmp.find("===")+len("===")
-            tmp=tmp[n:] #remove username
         tmp=rt.decrypt(tmp)
-        f.close()
         if tmp[0:5]!='Cycle':
             #            print 'Password is invalid'
             return False
-        else:
-            tmp=tmp[5:] #remove control word 'Cycle'
-            objLoad=cPickle.loads(tmp)
-            set_color_default()
-            for type, d in objLoad:
-#                print "Load: ", type, d
-                if type=='period':
-                    cal_year.cycle.period=int(d)
-                elif type=='by_average':
-                    cal_year.cycle.by_average=int(d)
-                elif type=='disp':
-                    cal_year.cycle.disp=int(d)
-                elif type=='first_week_day':
-                    cal_year.cycle.first_week_day=int(d)
-                elif type=='begin':
-                    dt=wx.DateTimeFromDMY(d[0], d[1], d[2])
-                    cal_year.cycle.begin.append(dt)
-                elif type=='last':
-                    dt=wx.DateTimeFromDMY(d[0], d[1], d[2])
-                    cal_year.cycle.last.append(dt)
-                elif type=='tablet':
-                    dt=wx.DateTimeFromDMY(d[0], d[1], d[2])
-                    cal_year.cycle.tablet.append(dt)
-                elif type=='note':
-                    cal_year.cycle.note=d.copy()
-                elif type=='colour': # d=['item', (r,g,b)]
-                    c = wx.Colour(d[1][0], d[1][1], d[1][2])
-                    if cal_year.cycle.colour_set.has_key(d[0]):
-                        cal_year.cycle.colour_set[d[0]] = c
-                    else:
-                        cal_yaar.cycle.colour_set.update({d[0]:c})
-#            print "Load OK"
-            return True
+        tmp=tmp[5:] #remove control word 'Cycle'
+
+
 
 #-------------------------------------------------------
 def get_f_name(name=""):
