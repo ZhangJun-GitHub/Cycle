@@ -4,6 +4,12 @@
 # Author: Oleg S. Gints (altgo@users.sourceforge.net)
 # Home page: http://cycle.sourceforge.net
 #===================================================    
+"""READ
+http://eli.thegreenplace.net/2010/06/25/aes-encryption-of-files-in-python-with-pycrypto/
+http://www.python.org/dev/peps/pep-0272/
+and then remove this comment
+"""
+
 import warnings
 # deprecated since release 2.3
 warnings.filterwarnings("ignore",
@@ -11,8 +17,11 @@ warnings.filterwarnings("ignore",
                         message='.*rotor module', module=__name__)
 
 import wx
-import os, os.path , cPickle, md5
+import os, os.path , cPickle
 import cal_year
+import hashlib
+from Crypto.Cipher import AES
+
 try:
     import rotor
 except:
@@ -21,10 +30,7 @@ except:
 def Save_Cycle(name='cycle', passwd='123', file='cycle'):
     """ Save the contents of our document to disk.
     """
-    objSave=[]
-    m=md5.new()
-    m.update(passwd)
-    rt=rotor.newrotor(m.digest())
+    objSave = []
     objSave.append(['period', cal_year.cycle.period])
     objSave.append(['by_average', cal_year.cycle.by_average])
     objSave.append(['disp', cal_year.cycle.disp])
@@ -42,6 +48,9 @@ def Save_Cycle(name='cycle', passwd='123', file='cycle'):
     for d in cal_year.cycle.colour_set.keys():
         objSave.append(['colour', [d, cal_year.cycle.colour_set[d].Get()] ])
 
+    iv = #TODO: find out if username is good enough
+    key = hashlib.sha256(password).digest()
+    encr = AES.new(key, AES.MODE_CBC, iv)
     tmp=rt.encrypt( 'Cycle'+cPickle.dumps(objSave) )
     tmp="UserName="+cPickle.dumps(name)+"==="+tmp
     p, f_name=get_f_name(file)
@@ -55,7 +64,7 @@ def Save_Cycle(name='cycle', passwd='123', file='cycle'):
 
 
 def Load_Cycle(name='cycle', passwd='123', file='cycle'):
-    
+    #TODO: detect if new AES or old rotor was used for save
     p, f_name=get_f_name(file)
     if os.path.isfile(f_name):
         m=md5.new()
