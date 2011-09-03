@@ -27,7 +27,7 @@ try:
 except:
     import p_rotor as rotor
 
-def Save_Cycle(name='cycle', passwd='123', file='cycle'):
+def Save_Cycle(name, password, file):
     """ Save the contents of our document to disk.
     """
     objSave = []
@@ -48,20 +48,21 @@ def Save_Cycle(name='cycle', passwd='123', file='cycle'):
     for d in cal_year.cycle.colour_set.keys():
         objSave.append(['colour', [d, cal_year.cycle.colour_set[d].Get()] ])
 
-    iv = #TODO: find out if username is good enough
+    data = cPickle.dumps( objSave, pickle.HIGHEST_PROTOCOL )
+    data = data + (16 - len(data) % 16) * chr(16 - len(data) % 16) # 16 is our blocksize
+
+    iv = os.urandom(16)
     key = hashlib.sha256(password).digest()
     encr = AES.new(key, AES.MODE_CBC, iv)
-    tmp=rt.encrypt( 'Cycle'+cPickle.dumps(objSave) )
-    tmp="UserName="+cPickle.dumps(name)+"==="+tmp
-    p, f_name=get_f_name(file)
+    data = AES.encrypt( data )
+    data = cPickle.dumps( { 'username': name, 'iv': iv, 'data': data, 'format': 'AES1' }, pickle.HIGHEST_PROTOCOL )
 
+    p, f_name=get_f_name(file)
     if not os.path.exists(p):
         os.mkdir(p,0700)
     f=open(f_name,"wb")
-    f.write(tmp)
+    f.write(data)
     f.close()
-#    print "All data saved to disk"
-
 
 def Load_Cycle(name='cycle', passwd='123', file='cycle'):
     #TODO: detect if new AES or old rotor was used for save
