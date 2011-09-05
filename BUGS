@@ -1,2 +1,44 @@
-Bug number one:
-    I can't print
+Bugs
+====
+
+* Fertile days
+    URL: https://sourceforge.net/tracker/?func=detail&aid=1470777&group_id=107842&atid=648860
+    Details: Hello,
+
+    The calculation of the fertile days is a bit strange.
+    If you have your ovulation the ovule only lasts for 24
+    hours. 2 days after ovulation will be enough to enhance
+    the fertile period. 5 days before ovulation is ok, 6
+    would be better.
+
+    Regards,
+    Jenny
+
+Feature requests
+================
+
+* Printing
+    Details: Would be nice if we could print
+
+* Strong/weak flow days mark
+    URL: https://sourceforge.net/tracker/?func=detail&aid=1933228&group_id=107842&atid=648863
+    Details: Hi,
+
+    I am a Fedora cycle package maintainer and I've got RFE from one of my users so that she would be able to distinguish in her calendar between days with a strong flow and weak flow.
+
+    No idea how to do it GUI-wise though.
+
+* Period length
+    URL: https://sourceforge.net/tracker/?func=detail&aid=1470778&group_id=107842&atid=648863
+    Details: Hello,
+
+    Normally you need to track, how long the period lasts.
+    Now you can make a note, but that's not practical. It
+    would be nice to say that was the first day and the
+    period was x days long and see that in the calendar.
+
+    Regards,
+    Jenny
+
+    PS: otherwise this could be a reason for me to learn
+    Python :-)
