@@ -183,16 +183,20 @@ def get_users():
         files=os.listdir(p)
         for f in files:
             fd=open(os.path.join(p, f),"rb")
-            tmp=fd.read(len(magic_str))
-            if tmp == magic_str:
-                tmp=fd.read(100)
-                n=tmp.find("===") #find end string
+            try:
+                data = cPickle.loads(fd)
+            except cPickle.UnpicklingError:
+                data = fd.read(len(magic_str))
+
+            if 'username' in data:
+                users.append((data['username'], f))
+            elif data == magic_str:
+                data = fd.read(100)
+                n = data.find("===") #find end string
                 if n <> -1:
-                    users.append((cPickle.loads(tmp[:n]), f))
-                else: # old format, user_name=file_name
-                    users.append((f,f))
-        #if not users:
-        #users=[(_('empty'),"empty")]
+                    users.append((cPickle.loads(data[:n]), f))
+            else: #old format
+                users.append((f, f))
         users.sort()
     return users
 
