@@ -4,11 +4,6 @@
 # Author: Oleg S. Gints (altgo@users.sourceforge.net)
 # Home page: http://cycle.sourceforge.net
 #===================================================    
-import warnings
-# deprecated since release 2.3
-warnings.filterwarnings("ignore",
-                        category=DeprecationWarning,
-                        message='.*rotor module', module=__name__)
 
 import wx
 import os, os.path , cPickle, md5

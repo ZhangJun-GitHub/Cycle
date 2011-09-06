@@ -4,11 +4,6 @@
 # Author: Oleg S. Gints (altgo@users.sourceforge.net)
 # Home page: http://cycle.sourceforge.net
 #===================================================    
-import warnings
-# deprecated since release 2.3
-warnings.filterwarnings("ignore",
-                        category = RuntimeWarning,
-                        message = '.*tempnam is a potential security risk to your program', module = __name__)
 
 import os
 import wx
@@ -17,6 +12,7 @@ import cPickle
 from cal_year import cycle , Val
 from save_load import Load_Cycle, get_f_name, set_color_default
 from set_dir import *
+
 #---------------------------------------------------------------------------
 class Settings_Dlg(wx.Dialog):
     def __init__(self, parent):
