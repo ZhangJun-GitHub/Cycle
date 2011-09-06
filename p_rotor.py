@@ -80,7 +80,7 @@ class newrotor(object):
         for c in map(ord, buf):
             if do_decrypt:
                 # Apply decrypt rotors and xor in reverse order
-                for i in xrange(nr-1,-1,-1):
+                for i in xrange(nr - 1, -1, -1):
                     c = pos[i] ^ rotors[i][c]
             else:
                 # Apply xor and ecrypt rotors
@@ -181,9 +181,9 @@ def random_func(key):
     # This algorithm is copied from Python2.3 randommodule.c.
     #
     mask = 0xffff
-    x=995
-    y=576
-    z=767
+    x = 995
+    y = 576
+    z = 767
     for c in map(ord, key):
         x = (((x<<3 | x>>13) + c) & mask)
         y = (((y<<3 | y>>13) ^ c) & mask)

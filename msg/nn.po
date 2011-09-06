@@ -1,162 +1,165 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR ORGANIZATION
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translation of Cycle to Norwegian Nynorsk.
+# Copyright (C) 2005 Magni OnsЬien
+# This file is distributed under the same license as the PACKAGE package.
+# Magni OnsЬien <magnio@pvv.org>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: Fri Apr 19 10:56:14 2002\n"
-"PO-Revision-Date: 2005-06-14 16:37+0100\n"
-"Last-Translator: Miriam Ruiz <little_miry@yahoo.es>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-06-09 14:11+0000\n"
+"PO-Revision-Date: 2005-06-17 22:25+0100\n"
+"Last-Translator: Magni OnsЬien <magnio@pvv.org>\n"
+"Language-Team:  <magnio@pvv.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=koi8-r\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: pygettext.py 1.4\n"
+"X-Poedit-Language: Norwegian Nynorsk\n"
+"X-Poedit-Country: NORWAY\n"
 
 #: cal_year.py:82
 msgid "Beginning of cycle"
-msgstr "Начало цикла"
+msgstr "Starten pЕ syklusen"
 
 #: cal_year.py:84
 #: dialogs.py:358
 #: dialogs.py:485
 msgid "1-st tablet"
-msgstr "1-ая таблетка"
+msgstr "Fyrste tablett"
 
 #: cal_year.py:87
 msgid "Conception"
-msgstr "Беременность"
+msgstr "Befruktning"
 
 #: cal_year.py:89
 msgid "Note"
-msgstr "Заметка"
+msgstr "Notat"
 
 #: cal_year.py:544
 msgid "tablet no. "
-msgstr "таблетка N "
+msgstr "tablett n"
 
 #: cal_year.py:546
 msgid " or pause"
-msgstr " или перерыв"
+msgstr " eller pause"
 
 #: cal_year.py:548
 #: dialogs.py:360
 #: dialogs.py:487
 msgid "next 1-st tablet"
-msgstr "следующая 1-ая таблетка"
+msgstr "neste fyrste tablett"
 
 #: cal_year.py:589
 #, python-format
 msgid "%s day of gestation"
-msgstr "%s день беременности"
+msgstr "%s dag av svangerskapet"
 
 #: cal_year.py:590
 msgid "1 week"
-msgstr "1 нед."
+msgstr "1 veke"
 
 #: cal_year.py:591
 #, python-format
 msgid "%s weeks"
-msgstr "%s нед."
+msgstr "%s veker"
 
 #: cal_year.py:593
 msgid "1 day"
-msgstr "1 дн."
+msgstr "1 dag"
 
 #: cal_year.py:594
 #, python-format
 msgid "%s days"
-msgstr "%s дн."
+msgstr "%s dagar"
 
 #: cal_year.py:603
 #, python-format
 msgid "%s day of period from %s to %s"
-msgstr "%s -й день периода с %s по %s"
+msgstr "%s dagar menstruasjon frЕ %s til %s"
 
 #: cal_year.py:604
 #, python-format
 msgid "length %s days"
-msgstr "продолжительностью %s дн."
+msgstr "lengd %s dagar"
 
 #: cycle.py:100
 msgid "Dec Year"
-msgstr "Год назад"
+msgstr "I fjor"
 
 #: cycle.py:103
 msgid "Current Year"
-msgstr "Текущий год"
+msgstr "I Еr"
 
 #: cycle.py:106
 msgid "Inc Year"
-msgstr "Год вперед"
+msgstr "Neste Еr"
 
 #: cycle.py:112
 #: dialogs.py:346
 msgid "Legend"
-msgstr "Легенда"
+msgstr "Forklaring"
 
 #: cycle.py:115
 #: dialogs.py:17
 msgid "Settings"
-msgstr "Установки"
+msgstr "Oppsett"
 
 #: cycle.py:118
 #: cycle.py:157
 msgid "Help"
-msgstr "Помощь"
+msgstr "hjelp"
 
 #: cycle.py:126
 msgid "Exit"
-msgstr "Выход"
+msgstr "Avslutt"
 
 #: dialogs.py:22
 msgid "Length of cycle"
-msgstr "Прогноз периода"
+msgstr "Lengda pЕ syklusen"
 
 #: dialogs.py:24
 msgid " by average"
-msgstr "по среднему"
+msgstr " i snitt"
 
 #: dialogs.py:37
 msgid " days in cycle"
-msgstr " дней в цикле"
+msgstr " dagar i syklusen"
 
 #: dialogs.py:41
 msgid "Display"
-msgstr "Показывать"
+msgstr "Vis"
 
 #: dialogs.py:42
 msgid "safe sex days"
-msgstr "дни безопасного секса"
+msgstr "dagar for trygg sex"
 
 #: dialogs.py:42
 msgid "fertile days"
-msgstr "фертильные дни"
+msgstr "fruktbare dagar"
 
 #: dialogs.py:42
 msgid "both"
-msgstr "все"
+msgstr "begge"
 
 #: dialogs.py:48
 msgid "First week day"
-msgstr "Первый день недели"
+msgstr "Fyrste vekedag"
 
 #: dialogs.py:49
 msgid "monday"
-msgstr "понедельник"
+msgstr "mЕndag"
 
 #: dialogs.py:49
 msgid "sunday"
-msgstr "воскресенье"
+msgstr "sundag"
 
 #: dialogs.py:56
 msgid "Colours"
-msgstr "Цвета"
+msgstr "Fargar"
 
 #: dialogs.py:57
 msgid "Change password"
-msgstr "Изменить пароль"
+msgstr "Bytt passord"
 
 #: dialogs.py:73
 #: dialogs.py:142
@@ -166,7 +169,7 @@ msgstr "Изменить пароль"
 #: dialogs.py:455
 #: dialogs.py:491
 msgid "Ok"
-msgstr "Да"
+msgstr "Ok"
 
 #: dialogs.py:78
 #: dialogs.py:147
@@ -174,63 +177,63 @@ msgstr "Да"
 #: dialogs.py:403
 #: dialogs.py:501
 msgid "Cancel"
-msgstr "Отмена"
+msgstr "Avbryt"
 
 #: dialogs.py:96
 msgid "Period of cycle is invalid!"
-msgstr "Некорректный период цикла!"
+msgstr "Syklusperioden er ugyldig!"
 
 #: dialogs.py:97
 #: dialogs.py:166
 #: dialogs.py:268
 #: dialogs.py:335
 msgid "Error!"
-msgstr "Ошибка!"
+msgstr "Feil!"
 
 #: dialogs.py:122
 #: dialogs.py:257
 msgid "Password"
-msgstr "Пароль"
+msgstr "Passord"
 
 #: dialogs.py:127
 msgid "Enter your password"
-msgstr "Введите Ваш пароль"
+msgstr "Skriv inn passordet ditt"
 
 #: dialogs.py:133
 msgid "Once more..."
-msgstr "Еще раз..."
+msgstr "Ein gong til..."
 
 #: dialogs.py:161
 msgid "Password must be not EMPTY!"
-msgstr "Пароль не может быть пустым"
+msgstr "Passordet kan ikkje vere TOMT!"
 
 #: dialogs.py:163
 msgid "Entering password don't match!"
-msgstr "Гм, пароли не совпадают."
+msgstr "Passorda stemmer ikkje overeins!"
 
 #: dialogs.py:179
 msgid "Login"
-msgstr "Добро пожаловать"
+msgstr "Logg inn"
 
 #: dialogs.py:189
 msgid "empty"
-msgstr "пусто"
+msgstr "tom"
 
 #: dialogs.py:205
 msgid "Your name"
-msgstr "Ваше имя"
+msgstr "Namnet ditt"
 
 #: dialogs.py:221
 msgid "Add user"
-msgstr "Добавить пользователя"
+msgstr "Legg til brukar"
 
 #: dialogs.py:257
 msgid ", enter you password:"
-msgstr ", введите Ваш пароль:"
+msgstr ", skriv inn passordet ditt"
 
 #: dialogs.py:267
 msgid "Password is invalid!"
-msgstr "Неправильный пароль!"
+msgstr "Passordet er ugyldig!"
 
 #: dialogs.py:302
 msgid ""
@@ -243,78 +246,83 @@ msgid ""
 "conclusions from them. You cannot consider this program as a\n"
 "substitute for your gynecologist in any way."
 msgstr ""
-"Эта программа не является надежным методом контрацепции.\n"
-"Она также не предохраняет от болезней, передающихся половым путем.\n"
-"Вы не можете считать эту программу заменой вашему гинекологу."
+"Dette programmet er ikkje ein pЕliteleg prevensjonsmetode.\n"
+"Det hjelper heller ikkje mot seksuelt overfЬrbare sjukdommar\n"
+"som HIV/AIDS.\n"
+"\n"
+"Det er berre ein elektronisk mЕte Е halde oversikt\n"
+"over nokre av dei medisinske dataene dine og hente ut nokre statistiske\n"
+"konklusjonar frЕ dei. Du kan ikkje pЕ nokon mЕte sjЕ pЕ dette\n"
+"programmet som ei erstatning for gynekologen din."
 
 #: dialogs.py:308
 msgid "Enter you name:"
-msgstr "Наберите Ваше имя"
+msgstr "Skriv inn namnet ditt: "
 
 #: dialogs.py:308
 msgid "New user"
-msgstr "Новый пользователь"
+msgstr "Ny brukar"
 
 #: dialogs.py:330
 msgid " - already exists!"
-msgstr " - уже есть!"
+msgstr " - finst allereie"
 
 #: dialogs.py:332
 msgid " - has invalid characters!"
-msgstr ""
+msgstr " - har ugyldige teikn"
 
 #: dialogs.py:334
 msgid "Name must be not EMPTY"
-msgstr "Имя может быть пустым"
+msgstr "Namnet kan ikkje vere TOMT"
 
 #: dialogs.py:351
 msgid "today"
-msgstr "сегодня"
+msgstr "i dag"
 
 #: dialogs.py:352
 #: dialogs.py:479
 msgid "begin of cycle"
-msgstr "начало цикла"
+msgstr "starten pЕ syklusen"
 
 #: dialogs.py:353
 #: dialogs.py:480
 msgid "prognosis of cycle begin"
-msgstr "прогнозируемое начало цикла"
+msgstr "prognose for starten pЕ syklusen"
 
 #: dialogs.py:354
 #: dialogs.py:481
 msgid "conception"
-msgstr "беременность"
+msgstr "befruktning"
 
 #: dialogs.py:355
 #: dialogs.py:482
 msgid "safe sex"
-msgstr "безопасный секс"
+msgstr "trygg sex"
 
 #: dialogs.py:356
 #: dialogs.py:483
 msgid "fertile"
-msgstr "фертильные дни"
+msgstr "fruktbar"
 
 #: dialogs.py:357
 #: dialogs.py:484
 msgid "ovule, birth"
-msgstr "овуляция, рождение"
+msgstr "egg, fЬdsel"
 
 #: dialogs.py:359
 #: dialogs.py:486
-msgid "tablets N 22-28 or pause"
-msgstr "таблетки N 22-28 или перерыв"
+msgid "tablets no. 22-28 or pause"
+msgstr "tablettar nr. 22-28 eller pause"
 
 #: dialogs.py:408
 msgid "Remove"
-msgstr "Удалить"
+msgstr "Fjern"
 
 #: dialogs.py:469
 msgid "Colours settings"
-msgstr "Настройка цветов"
+msgstr "Fargeoppsett"
 
 #: dialogs.py:496
 msgid "By default"
-msgstr "По умолчанию"
+msgstr "Standardverdi"
 

@@ -15,7 +15,7 @@ msgstr ""
 "X-Generator: KBabel 1.0.2\n"
 
 #: ../cal_year.py:70
-msgid "Begin of cycle"
+msgid "Beginning of cycle"
 msgstr "Začiatok cyklusu"
 
 #: ../cal_year.py:72 ../dialogs.py:313
@@ -31,7 +31,7 @@ msgid "Note"
 msgstr "Poznámka"
 
 #: ../cal_year.py:505
-msgid "tablet N "
+msgid "tablet no. "
 msgstr "Tabletka N"
 
 #: ../cal_year.py:507
@@ -248,11 +248,11 @@ msgid "fertile"
 msgstr "plodnosť"
 
 #: ../dialogs.py:312
-msgid "ovule, birth"
+msgid "ovulation, birth"
 msgstr "vajíčko, narodenie"
 
 #: ../dialogs.py:314
-msgid "tablets N 22-28 or pause"
+msgid "tablets no. 22-28 or pause"
 msgstr "tabletky N 22-28 alebo prestávka"
 
 #: ../dialogs.py:360
