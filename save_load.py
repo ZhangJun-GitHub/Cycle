@@ -44,14 +44,14 @@ def Save_Cycle(name, password, file):
     for d in cal_year.cycle.colour_set.keys():
         objSave.append(['colour', [d, cal_year.cycle.colour_set[d].Get()] ])
 
-    data = cPickle.dumps(objSave, pickle.HIGHEST_PROTOCOL)
+    data = cPickle.dumps(objSave, cPickle.HIGHEST_PROTOCOL)
     data = data + (16 - len(data) % 16) * chr(16 - len(data) % 16) # 16 is our blocksize
 
     iv = os.urandom(16)
     key = hashlib.sha256(password).digest()
     encr = AES.new(key, AES.MODE_CBC, iv)
-    data = AES.encrypt( data )
-    data = cPickle.dumps({'username': name, 'iv': iv, 'data': data, 'format': 'AES1'}, pickle.HIGHEST_PROTOCOL)
+    data = encr.encrypt(data)
+    data = cPickle.dumps({'username': name, 'iv': iv, 'data': data, 'format': 'AES1'}, cPickle.HIGHEST_PROTOCOL)
 
     p, f_name=get_f_name(file)
     if not os.path.exists(p):
@@ -64,21 +64,21 @@ def Load_Cycle(name, password, file):
     #TODO: detect if new AES or old rotor was used for save
     #depad aes data = data[ 0:-ord(data[-1]) ]
     p, f_name=get_f_name(file)
-    if os.path.isfile(f_name):
-        return True
+    if not os.path.isfile(f_name):
+        return False
 
-    data = open( f_name, "rb" )
+    data = open(f_name, "rb").read()
 
     try:
-        data = load_aes_formay(data, password)
+        data = load_dict_format(data, password)
     except cPickle.UnpicklingError:
         data = load_legacy(data, password)
 
     if data is False:
+        print data
         return False
 
     objLoad = cPickle.loads(data)
-    data.close()
     set_color_default()
 
     for type, d in objLoad:
@@ -114,7 +114,7 @@ def load_legacy(data, password):
     #clean me up!
     if data[:9] == "UserName=":
         #second format, username precedes pickle
-        n = data.find("===")+len("===")
+        n = data.find("===") + len("===")
         data = data[n:]
 
     m = hashlib.md5(password)
@@ -133,7 +133,7 @@ def load_dict_format(data, password):
     iv = data['iv']
     key = hashlib.sha256(password).digest()
     encr = AES.new(key, AES.MODE_CBC, iv)
-    data = AES.decrypt( data )
+    data = encr.decrypt( data )
     
     try:
         data = cPickle.loads(data)

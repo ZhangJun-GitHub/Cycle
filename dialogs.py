@@ -172,24 +172,26 @@ class Ask_Passwd_Dlg(wx.Dialog):
 #---------------------------------------------------------------------------
 def get_users():
     #Get list of users
-    magic_str = "UserName="
+    magic_str = 'UserName='
     users = [] #array of (user, file) name
     p, f_name = get_f_name()
     if os.path.exists(p):
         files = os.listdir(p)
+        print files
         for f in files:
-            fd=open(os.path.join(p, f),"rb")
+            fd = open(os.path.join(p, f), "rb")
             try:
-                data = cPickle.loads(fd)
+                data = cPickle.loads(fd.read())
             except cPickle.UnpicklingError:
+                fd.seek(0)
                 data = fd.read(len(magic_str))
 
             if 'username' in data:
                 users.append((data['username'], f))
-            elif data == magic_str:
-                data = fd.read(100)
+            elif data in magic_str:
+                data = fd.read()
                 n = data.find("===") #find end string
-                if n <> -1:
+                if n is not -1:
                     users.append((cPickle.loads(data[:n]), f))
             else: #old format
                 users.append((f, f))
