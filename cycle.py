@@ -18,7 +18,6 @@ from cal_year import *
 from save_load import *
 from dialogs import *
 from set_dir import *
-#from prn import *
 
 import gettext
 import __builtin__
@@ -116,7 +115,7 @@ class MyFrame(wx.Frame):
         SetToolPath(self, tb, 55, os.path.join(bitmaps_dir, 'help.png'), _('Help'))
         wx.EVT_TOOL(self, 55, self.Info)
 
-        SetToolPath(self, tb, 57, os.path.join(bitmaps_dir, 'help.png'), _('Print'))
+        SetToolPath(self, tb, 57, os.path.join(bitmaps_dir, 'print.png'), _('Print'))
         wx.EVT_TOOL(self, 57, self.test)
 
         tb.AddSeparator()
@@ -129,9 +128,9 @@ class MyFrame(wx.Frame):
     def test(self, event):
         rpt = report_year(self.cal.year)
         self.printer.PreviewText(rpt)
-        dlg = Colours_Dlg(self)
-        dlg.ShowModal()
-        dlg.Destroy()
+        #dlg = Colours_Dlg(self)
+        #dlg.ShowModal()
+        #dlg.Destroy()
 
     def Legend(self, event):
         dlg = Legend_Dlg(self)
