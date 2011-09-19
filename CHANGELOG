@@ -1,9 +1,18 @@
 #====================================================
 #	Cycle - calendar for women
 #	Distributed under GNU Public License
-# Author: Oleg S. Gints (altgo@users.sourceforge.net)
+# Original author: Oleg S. Gints
+# Maintainer: Matt Molyneaux (moggers87+git@moggers87.co.uk)
 # Home page: http://cycle.sourceforge.net
 #===================================================
+0.3.2 (19.09.2011)
+    - fixed issues with mixing of tabs and spaces, all code now uses 4 spaces as
+      a tab
+    - merged patches found in Fedora RPM (originated from Debian)
+    - removed Russian and German readme files, I don't speak either well enough
+    - added some very basic printing
+    - moved to a different website as original author hasn't replied to emails
+      and SourceForge don't deal with abandoned projects anymore
 0.3.1 (15.09.2005)
     - change to Python 2.4 - repleace rotor module
     - restore old default color scheme
