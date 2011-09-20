@@ -1,8 +1,9 @@
 #====================================================
 #	Cycle - calendar for women
 #	Distributed under GNU Public License
-# Author: Oleg S. Gints (altgo@users.sourceforge.net)
-# Home page: http://cycle.sourceforge.net
+# Original author: Oleg S. Gints
+# Maintainer: Matt Molyneaux (moggers87+git@moggers87.co.uk)
+# Home page: http://moggers.co.uk/cgit/cycle.git/about
 #===================================================    
 
 1. Install Python, wxPythonGTK-2.5.x first.

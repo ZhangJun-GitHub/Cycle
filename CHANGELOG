@@ -3,7 +3,7 @@
 #	Distributed under GNU Public License
 # Original author: Oleg S. Gints
 # Maintainer: Matt Molyneaux (moggers87+git@moggers87.co.uk)
-# Home page: http://cycle.sourceforge.net
+# Home page: http://moggers.co.uk/cgit/cycle.git/about
 #===================================================
 0.3.2 (19.09.2011)
     - fixed issues with mixing of tabs and spaces, all code now uses 4 spaces as
