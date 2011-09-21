@@ -629,7 +629,6 @@ def report_year(year):
     
 
     s += '</pre></body></html>'
-    print s
     return s
 
 def report_year_ical(year, fileobj):

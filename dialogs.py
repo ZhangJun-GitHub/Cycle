@@ -178,7 +178,6 @@ def get_users():
     p, f_name = get_f_name()
     if os.path.exists(p):
         files = os.listdir(p)
-        print files
         for f in files:
             fd = open(os.path.join(p, f), "rb")
             try:

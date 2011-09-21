@@ -76,7 +76,6 @@ def Load_Cycle(name, password, file):
         data = load_legacy(data, password)
 
     if data is False:
-        print data
         return False
 
     objLoad = cPickle.loads(data)
