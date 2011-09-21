@@ -1,8 +1,9 @@
 #====================================================
 #        Cycle - calendar for women
 #        Distributed under GNU Public License
-# Author: Oleg S. Gints (altgo@users.sourceforge.net)
-# Home page: http://cycle.sourceforge.net
+# Original author: Oleg S. Gints
+# Maintainer: Matt Molyneaux (moggers87+git@moggers87.co.uk)
+# Home page: http://moggers.co.uk/cgit/cycle.git/about
 #===================================================    
 
 import wx
@@ -407,7 +408,7 @@ def calc_fert(year):
     cycle.prog_begin = []
     d = d + wx.DateSpan.Days(cycle.period)
     while d.GetYear() <= year:
-        if cycle.tablet is not [] and cycle.tablet[-1] <= d and \
+        if cycle.tablet != [] and cycle.tablet[-1] <= d and \
             cycle.begin[-1] <= cycle.tablet[-1]: return
         if d.GetYear() == year: 
             #            cycle.prog_begin.append(d)
@@ -495,7 +496,7 @@ def reset_mark(year):
 
 def info(day):
     s = day.Format('%d %B')
-    if cycle.tablet is not []:
+    if cycle.tablet != []:
         for d in cycle.tablet:
             if day.IsBetween(d, d + wx.DateSpan.Days(28)):
                 t = (day - d + wx.TimeSpan.Hours(1)).GetDays() + 1
@@ -526,7 +527,7 @@ def info(day):
             d2 = d
         else:
             while d <= day:
-                if cycle.tablet is not [] and cycle.tablet[-1] <= d and \
+                if cycle.tablet != [] and cycle.tablet[-1] <= d and \
                    cycle.begin[-1] <= cycle.tablet[-1]:
                     return s
                 d = d + wx.DateSpan.Days(cycle.period)
