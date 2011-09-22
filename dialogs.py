@@ -188,7 +188,7 @@ def get_users():
 
             if 'username' in data:
                 users.append((data['username'], f))
-            elif data in magic_str:
+            elif data == magic_str:
                 data = fd.read()
                 n = data.find("===") #find end string
                 if n is not -1:
