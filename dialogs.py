@@ -41,7 +41,7 @@ class Settings_Dlg(wx.Dialog):
         box.Add(b1, 0, wx.EXPAND | wx.TOP | wx.LEFT | wx.RIGHT, 10)
         #======================
         self.rb = wx.RadioBox(self, -1, _('Display'),
-            choices = [ _('safe sex days'), _('fertile days'), _('both')],
+            choices = [_('fertile days'), _('none')],
             majorDimension=1, style=wx.RA_SPECIFY_COLS)
         box.Add(self.rb, 0, wx.EXPAND | wx.TOP | wx.LEFT | wx.RIGHT, 10)
         self.rb.SetSelection(cycle.disp)
@@ -374,7 +374,6 @@ class Legend_Dlg(wx.Dialog):
         self._add(box, _('begin of cycle'), cycle.colour_set['begin'])
         self._add(box, _('prognosis of cycle begin'), cycle.colour_set['prog begin'])
         self._add(box, _('conception'), cycle.colour_set['conception'])
-        self._add(box, _('safe sex'), cycle.colour_set['safe sex'])
         self._add(box, _('fertile'), cycle.colour_set['fertile'])
         self._add(box, _('ovulation, birth'), cycle.colour_set['ovule'])
         self._add(box, _('1-st tablet'), cycle.colour_set['1-st tablet'])
@@ -495,7 +494,6 @@ class Colours_Dlg(wx.Dialog):
         self._add(box, _('begin of cycle'), 'begin')
         self._add(box, _('prognosis of cycle begin'), 'prog begin')
         self._add(box, _('conception'), 'conception')
-        self._add(box, _('safe sex'), 'safe sex')
         self._add(box, _('fertile'), 'fertile')
         self._add(box, _('ovulation, birth'), 'ovule')
         self._add(box, _('1-st tablet'), '1-st tablet')
@@ -550,7 +548,6 @@ class Colours_Dlg(wx.Dialog):
         self.col_set = {'begin':wx.NamedColour('RED'),
             'prog begin':wx.NamedColour('PINK'),
             'conception':wx.NamedColour('MAGENTA'),
-            'safe sex':wx.NamedColour('WHEAT'),
             'fertile':wx.NamedColour('GREEN YELLOW'),
             'ovule':wx.NamedColour('SPRING GREEN'),
             '1-st tablet':wx.NamedColour('GOLD'),

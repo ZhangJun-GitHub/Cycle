@@ -17,7 +17,6 @@ class Val:
 MARK_BEGIN  = 1
 MARK_FERT   = 1<<1
 MARK_OVUL   = 1<<2
-MARK_SAFESEX= 1<<3
 MARK_TODAY  = 1<<4
 MARK_NOTE   = 1<<5
 MARK_PROG   = 1<<6
@@ -255,13 +254,10 @@ class Cal_Year(wx.ScrolledWindow):
                     at.SetBackgroundColour(cycle.colour_set['prog begin'])
                     at.SetTextColour(wx.BLACK)
 
-                if lab & MARK_SAFESEX and (cycle.disp == 0 or cycle.disp == 2):
-                    at.SetBackgroundColour(cycle.colour_set['safe sex'])
-                    
-                if lab & MARK_FERT and (cycle.disp == 1 or cycle.disp == 2):
+                if lab & MARK_FERT and (cycle.disp == 0):
                     at.SetBackgroundColour(cycle.colour_set['fertile'])
 
-                if lab & MARK_OVUL and (cycle.disp == 1 or cycle.disp == 2):
+                if lab & MARK_OVUL and (cycle.disp == 0):
                     at.SetBackgroundColour(cycle.colour_set['ovule'])
                 
                 if lab & MARK_TODAY :
@@ -320,7 +316,6 @@ class cycle:
 #    colour_set = year_b=wx.DateTim{'begin':wx.NamedColour('red'),
 #        'prog begin':wx.NamedColour('pink'),
 #        'conception':wx.NamedColour('MAGENTA'),
-#        'safe sex':wx.NamedColour('wheat'),
 #        'fertile':wx.NamedColour('green yellow'),
 #        'ovule':wx.NamedColour('SPRING GREEN'),
 #        '1-st tablet':wx.NamedColour('gold'),
@@ -391,8 +386,6 @@ def calc_fert(year):
         while f.IsBetween(start, stop):
             if f.IsBetween(begin, end):
                 add_mark(f, MARK_FERT, year)
-            else:
-                add_mark(f, MARK_SAFESEX, year)
             f = f + wx.DateSpan_Day()
         
         if d in cycle.last: # calc birthday
@@ -431,8 +424,6 @@ def calc_fert(year):
         while f.IsBetween(start, stop):
             if f.IsBetween(begin, end):
                 add_mark(f, MARK_FERT, year)
-            else:
-                add_mark(f, MARK_SAFESEX, year)
             f = f + wx.DateSpan_Day()
 
 

@@ -158,7 +158,6 @@ def set_color_default():
     cal_year.cycle.colour_set = {'begin':wx.NamedColour('RED'),
         'prog begin':wx.NamedColour('PINK'),
         'conception':wx.NamedColour('MAGENTA'),
-        'safe sex':wx.NamedColour('WHEAT'),
         'fertile':wx.NamedColour('GREEN YELLOW'),
         'ovule':wx.NamedColour('SPRING GREEN'),
         '1-st tablet':wx.NamedColour('GOLD'),
