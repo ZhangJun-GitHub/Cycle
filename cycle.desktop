@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=cycle
+Type=Application
+Exec=/usr/bin/cycle
+Icon=/usr/share/cycle/icons/cycle.xpm
+Terminal=false
+StartupNotify=true
+Categories=GNOME;Utility;Calendar;MedicalSoftware;
