@@ -182,7 +182,7 @@ def get_users():
             fd = open(os.path.join(p, f), "rb")
             try:
                 data = cPickle.loads(fd.read())
-            except cPickle.UnpicklingError:
+            except (cPickle.UnpicklingError, ImportError, AttributeError, EOFError, IndexError):
                 fd.seek(0)
                 data = fd.read(len(magic_str))
 

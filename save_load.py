@@ -70,7 +70,7 @@ def Load_Cycle(name, password, file):
 
     try:
         tmp = load_dict_format(data, password)
-    except cPickle.UnpicklingError:
+    except (cPickle.UnpicklingError, ImportError, AttributeError, EOFError, IndexError):
         tmp = load_legacy(data, password)
 
     if tmp is False:

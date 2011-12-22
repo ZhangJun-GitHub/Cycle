@@ -17,6 +17,7 @@ class Val:
 MARK_BEGIN  = 1
 MARK_FERT   = 1<<1
 MARK_OVUL   = 1<<2
+MARK_SAFESEX= 1<<3 #compat. with older versions
 MARK_TODAY  = 1<<4
 MARK_NOTE   = 1<<5
 MARK_PROG   = 1<<6
