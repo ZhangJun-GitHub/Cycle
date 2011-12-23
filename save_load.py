@@ -70,7 +70,7 @@ def Load_Cycle(name, password, file):
 
     try:
         tmp = load_dict_format(data, password)
-    except cPickle.UnpicklingError:
+    except (cPickle.UnpicklingError, ImportError, AttributeError, EOFError, IndexError):
         tmp = load_legacy(data, password)
 
     if tmp is False:
@@ -145,10 +145,7 @@ def load_dict_format(data, password):
 
 #-------------------------------------------------------
 def get_f_name(name=""):
-    if '__WXMSW__' in wx.PlatformInfo:
-        p = os.path.join(os.getcwd(), "data")
-    else:
-        p = os.path.expanduser("~/.cycle")
+    p = os.path.expanduser("~/.cycle")
     f_name = os.path.join(p, name)
 
     return p, f_name

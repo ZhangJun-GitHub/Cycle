@@ -182,7 +182,7 @@ def get_users():
             fd = open(os.path.join(p, f), "rb")
             try:
                 data = cPickle.loads(fd.read())
-            except cPickle.UnpicklingError:
+            except (cPickle.UnpicklingError, ImportError, AttributeError, EOFError, IndexError):
                 fd.seek(0)
                 data = fd.read(len(magic_str))
 
@@ -311,12 +311,13 @@ def first_login():
         return 'bad_login'
 #-------------------------------------------------------
 def get_new_file_name():
+    #create filename for user
     while True:
-        p, f = os.path.split( os.tempnam(None, "cycle") )
-        p, f_name = get_f_name(f)
-        if not os.path.isfile(f_name):
-            break
-    return f
+        random_chars = "".join(chr(random.randint(0,255)) for i in xrange(4))
+        random_chars = base64.urlsafe_b64encode(random_chars)
+        p, random_chars = get_f_name(random_chars)
+        if not os.path.isfile(random_chars):
+            return random_chars
 #-------------------------------------------------------
 def ask_name(parent=None):
     # nobody, it is first login
