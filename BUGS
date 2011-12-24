@@ -17,8 +17,11 @@ Bugs
 Feature requests
 ================
 
+* Code refactor
+    Details: Refactor code into a state that is both readable and maintainable
+
 * Printing
-    Details: Would be nice if we could print
+    Details: Basic printing is supported, better printing will come after refactoring of code
 
 * Strong/weak flow days mark
     URL: https://sourceforge.net/tracker/?func=detail&aid=1933228&group_id=107842&atid=648863
