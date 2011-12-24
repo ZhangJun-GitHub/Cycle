@@ -41,7 +41,7 @@ class Settings_Dlg(wx.Dialog):
         box.Add(b1, 0, wx.EXPAND | wx.TOP | wx.LEFT | wx.RIGHT, 10)
         #======================
         self.rb = wx.RadioBox(self, -1, _('Display'),
-            choices = [ _('safe sex days'), _('fertile days'), _('both')],
+            choices = [_('fertile days'), _('none')],
             majorDimension=1, style=wx.RA_SPECIFY_COLS)
         box.Add(self.rb, 0, wx.EXPAND | wx.TOP | wx.LEFT | wx.RIGHT, 10)
         self.rb.SetSelection(cycle.disp)
@@ -173,24 +173,25 @@ class Ask_Passwd_Dlg(wx.Dialog):
 #---------------------------------------------------------------------------
 def get_users():
     #Get list of users
-    magic_str = "UserName="
+    magic_str = 'UserName='
     users = [] #array of (user, file) name
     p, f_name = get_f_name()
     if os.path.exists(p):
         files = os.listdir(p)
         for f in files:
-            fd=open(os.path.join(p, f),"rb")
+            fd = open(os.path.join(p, f), "rb")
             try:
-                data = cPickle.loads(fd)
-            except cPickle.UnpicklingError:
+                data = cPickle.loads(fd.read())
+            except (cPickle.UnpicklingError, ImportError, AttributeError, EOFError, IndexError):
+                fd.seek(0)
                 data = fd.read(len(magic_str))
 
             if 'username' in data:
                 users.append((data['username'], f))
             elif data == magic_str:
-                data = fd.read(100)
+                data = fd.read()
                 n = data.find("===") #find end string
-                if n <> -1:
+                if n is not -1:
                     users.append((cPickle.loads(data[:n]), f))
             else: #old format
                 users.append((f, f))
@@ -310,12 +311,13 @@ def first_login():
         return 'bad_login'
 #-------------------------------------------------------
 def get_new_file_name():
+    #create filename for user
     while True:
-        p, f = os.path.split( os.tempnam(None, "cycle") )
-        p, f_name = get_f_name(f)
-        if not os.path.isfile(f_name):
-            break
-    return f
+        random_chars = "".join(chr(random.randint(0,255)) for i in xrange(4))
+        random_chars = base64.urlsafe_b64encode(random_chars)
+        p, random_chars = get_f_name(random_chars)
+        if not os.path.isfile(random_chars):
+            return random_chars
 #-------------------------------------------------------
 def ask_name(parent=None):
     # nobody, it is first login
@@ -373,7 +375,6 @@ class Legend_Dlg(wx.Dialog):
         self._add(box, _('begin of cycle'), cycle.colour_set['begin'])
         self._add(box, _('prognosis of cycle begin'), cycle.colour_set['prog begin'])
         self._add(box, _('conception'), cycle.colour_set['conception'])
-        self._add(box, _('safe sex'), cycle.colour_set['safe sex'])
         self._add(box, _('fertile'), cycle.colour_set['fertile'])
         self._add(box, _('ovulation, birth'), cycle.colour_set['ovule'])
         self._add(box, _('1-st tablet'), cycle.colour_set['1-st tablet'])
@@ -494,7 +495,6 @@ class Colours_Dlg(wx.Dialog):
         self._add(box, _('begin of cycle'), 'begin')
         self._add(box, _('prognosis of cycle begin'), 'prog begin')
         self._add(box, _('conception'), 'conception')
-        self._add(box, _('safe sex'), 'safe sex')
         self._add(box, _('fertile'), 'fertile')
         self._add(box, _('ovulation, birth'), 'ovule')
         self._add(box, _('1-st tablet'), '1-st tablet')
@@ -549,7 +549,6 @@ class Colours_Dlg(wx.Dialog):
         self.col_set = {'begin':wx.NamedColour('RED'),
             'prog begin':wx.NamedColour('PINK'),
             'conception':wx.NamedColour('MAGENTA'),
-            'safe sex':wx.NamedColour('WHEAT'),
             'fertile':wx.NamedColour('GREEN YELLOW'),
             'ovule':wx.NamedColour('SPRING GREEN'),
             '1-st tablet':wx.NamedColour('GOLD'),

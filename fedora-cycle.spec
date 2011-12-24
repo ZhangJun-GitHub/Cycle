@@ -15,10 +15,10 @@ BuildRequires:  python-devel >= 2.3, gettext,desktop-file-utils
 %description
 Cycle is a calendar for women. Given a cycle length or statistics
 for several periods, it can calculate the days until
-menstruation, the days of "safe" sex, the fertile period, and the
-days to ovulations, and define the d.o.b. of a child. It allows
-the user to write notes and helps to supervise the administration
-of hormonal contraceptive tablets.
+menstruation, the fertile period, and the days to ovulations,
+and define the d.o.b. of a child. It allows the user to write
+notes and helps to supervise the administration of hormonal
+contraceptive tablets.
 
 Multiple users allowed. Data is protected by a password for every
 user.
