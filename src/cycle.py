@@ -204,3 +204,11 @@ class MyApp(wx.App):
         frame = MyFrame(None, -1, "")
         frame.Show(True)
         self.SetTopWindow(frame)
+
+def main():
+    """Entry point"""
+    locale.setlocale(locale.LC_ALL, "")
+    dir_path = os.getcwd()
+    app = MyApp(0)
+    app.MainLoop()
+    return 0
