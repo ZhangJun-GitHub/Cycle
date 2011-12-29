@@ -6,7 +6,6 @@
 # Home page: http://moggers.co.uk/cgit/cycle.git/about
 #===================================================    
 
-1. Install Python, wxPythonGTK-2.5.x first.
-3. Unpack cycle-X.X.X.tar.gz
-3. Run cycle.py
+This program uses setuptools. Run python setup.py --help for more information.
 
+You can also use run.sh to execute the program without install
