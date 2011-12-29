@@ -207,8 +207,12 @@ class MyApp(wx.App):
 
 def main():
     """Entry point"""
-    locale.setlocale(locale.LC_ALL, "")
+    global dir_path
     dir_path = os.getcwd()
+    locale.setlocale(locale.LC_ALL, "")
     app = MyApp(0)
     app.MainLoop()
     return 0
+
+if __name__ == '__main__':
+    main()

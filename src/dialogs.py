@@ -10,6 +10,8 @@ import os
 import wx
 import wx.html
 import cPickle
+import random
+import base64
 from cal_year import cycle , Val
 from save_load import Load_Cycle, get_f_name, set_color_default
 from set_dir import *
