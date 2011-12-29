@@ -50,8 +50,8 @@ contraceptive tablets."""),
     license="GPLv2+",
 
     data_files=[('cycle',['README', 'README.html'])],
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
+    packages=['cycle'],
+    package_dir={'cycle': 'src'},
     include_package_data=True,
 
     entry_points={

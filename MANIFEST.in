@@ -1,4 +1,3 @@
-include *.py
 include bitmaps/*.*
 include README*
 include MANIFEST.in

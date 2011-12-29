@@ -62,8 +62,7 @@ install -p -m a+r,u+w %{SOURCE1} \
     $RPM_BUILD_ROOT%{_datadir}/applications/%{name}.desktop
 
 # Python libraries
-install -p -m a+rx,u+w cycle.py $RPM_BUILD_ROOT%{_datadir}/cycle/
-install -p -m a+r,u+w cal_year.py dialogs.py p_rotor.py \
+install -p -m a+r,u+w cycle.py cal_year.py dialogs.py p_rotor.py \
     save_load.py set_dir.py \
     $RPM_BUILD_ROOT%{_datadir}/cycle/
 
