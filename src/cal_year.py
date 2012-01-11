@@ -29,6 +29,7 @@ MARK_NEXT_TABLET = 1<<11
 
 #-------------------- class Month_Cal -------------------
 class Month_Cal(wx.calendar.CalendarCtrl):
+    """Draws a single month"""
     def __init__(self, parent, id, dt, pos=wx.DefaultPosition, size=wx.DefaultSize, style=0):
                 
         style = wx.calendar.CAL_NO_YEAR_CHANGE | wx.calendar.CAL_NO_MONTH_CHANGE | wx.NO_BORDER
@@ -146,6 +147,7 @@ class Month_Cal(wx.calendar.CalendarCtrl):
 
 #-------------------- class Cal_Year -------------------
 class Cal_Year(wx.ScrolledWindow):
+    """This class seems to bring everything together"""
     def __init__(self, parent):
         wx.ScrolledWindow.__init__(self, parent, -1)
 #        self.SetScrollbars(20, 20, 39, 40)
@@ -181,6 +183,7 @@ class Cal_Year(wx.ScrolledWindow):
 
 
     def Init_Year(self):
+        """Draw calendar"""
         m = 0
         box = wx.BoxSizer(wx.VERTICAL)
         box.Add(wx.StaticLine(self, -1, style=wx.LI_HORIZONTAL), 0, wx.EXPAND )
