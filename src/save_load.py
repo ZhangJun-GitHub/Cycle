@@ -70,7 +70,7 @@ def Load_Cycle(name, password, file):
 
     try:
         tmp = load_dict_format(data, password)
-    except (cPickle.UnpicklingError, ImportError, AttributeError, EOFError, IndexError):
+    except:
         tmp = load_legacy(data, password)
 
     if tmp is False:
@@ -142,6 +142,44 @@ def load_dict_format(data, password):
     data = data[0:-ord(data[-1])]    
 
     return data
+
+#---------------------------------------------------------------------------
+def get_users():
+    #Get list of users
+    magic_str = 'UserName='
+    users = [] #array of (user, file) name
+    p, f_name = get_f_name()
+    if os.path.exists(p):
+        files = os.listdir(p)
+        for f in files:
+            fd = open(os.path.join(p, f), "rb")
+            try:
+                data = cPickle.loads(fd.read())
+            except:
+                fd.seek(0)
+                data = fd.read(len(magic_str))
+
+            if 'username' in data:
+                users.append((data['username'], f))
+            elif data == magic_str:
+                data = fd.read()
+                n = data.find("===") #find end string
+                if n is not -1:
+                    users.append((cPickle.loads(data[:n]), f))
+            else: #old format
+                users.append((f, f))
+        users.sort()
+    return users
+
+#-------------------------------------------------------
+def get_new_file_name():
+    #create filename for user
+    while True:
+        random_chars = "".join(chr(random.randint(0,255)) for i in xrange(4))
+        random_chars = base64.urlsafe_b64encode(random_chars)
+        p, random_chars = get_f_name(random_chars)
+        if not os.path.isfile(random_chars):
+            return random_chars
 
 #-------------------------------------------------------
 def get_f_name(name=""):

@@ -13,7 +13,7 @@ import cPickle
 import random
 import base64
 from cal_year import cycle , Val
-from save_load import Load_Cycle, get_f_name, set_color_default
+from save_load import Load_Cycle, get_f_name, set_color_default, get_users, get_new_file_name
 from set_dir import *
 
 #---------------------------------------------------------------------------
@@ -171,35 +171,6 @@ class Ask_Passwd_Dlg(wx.Dialog):
     def OnCancel(self, event):
         self.EndModal(wx.ID_CANCEL)
 
-
-#---------------------------------------------------------------------------
-def get_users():
-    #Get list of users
-    magic_str = 'UserName='
-    users = [] #array of (user, file) name
-    p, f_name = get_f_name()
-    if os.path.exists(p):
-        files = os.listdir(p)
-        for f in files:
-            fd = open(os.path.join(p, f), "rb")
-            try:
-                data = cPickle.loads(fd.read())
-            except (cPickle.UnpicklingError, ImportError, AttributeError, EOFError, IndexError):
-                fd.seek(0)
-                data = fd.read(len(magic_str))
-
-            if 'username' in data:
-                users.append((data['username'], f))
-            elif data == magic_str:
-                data = fd.read()
-                n = data.find("===") #find end string
-                if n is not -1:
-                    users.append((cPickle.loads(data[:n]), f))
-            else: #old format
-                users.append((f, f))
-        users.sort()
-    return users
-
 #---------------------------------------------------------------------------
 class Login_Dlg(wx.Dialog):
     def __init__(self, parent):
@@ -311,15 +282,7 @@ def first_login():
         return 'first'
     else:
         return 'bad_login'
-#-------------------------------------------------------
-def get_new_file_name():
-    #create filename for user
-    while True:
-        random_chars = "".join(chr(random.randint(0,255)) for i in xrange(4))
-        random_chars = base64.urlsafe_b64encode(random_chars)
-        p, random_chars = get_f_name(random_chars)
-        if not os.path.isfile(random_chars):
-            return random_chars
+
 #-------------------------------------------------------
 def ask_name(parent=None):
     # nobody, it is first login
