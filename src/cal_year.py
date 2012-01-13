@@ -27,7 +27,6 @@ MARK_TABLET = 1<<9 #1-st hormonal tablet
 MARK_T22_28 = 1<<10 #tablets 22-28 or pause 7 days
 MARK_NEXT_TABLET = 1<<11 
 
-#-------------------- class Month_Cal -------------------
 class Month_Cal(wx.calendar.CalendarCtrl):
     """Draws a single month"""
     def __init__(self, parent, id, dt, pos=wx.DefaultPosition, size=wx.DefaultSize, style=0):
@@ -57,28 +56,27 @@ class Month_Cal(wx.calendar.CalendarCtrl):
         self.d_click = wx.DateTime() #FromDMY(1, 0, 2002)
         
     def OnLeftDown(self, event):
-        #HitTest(Point pos) -> (result, date, weekday) 
-        res, d, w = self.HitTest(event.GetPosition())
+        result, date, wday = self.HitTest(event.GetPosition())
         if res == wx.calendar.CAL_HITTEST_DAY:
-            Val.frame.SetStatusText(info(d))
+            Val.frame.SetStatusText(info(date))
 
     def OnRightDown(self, event):
         res, d, w = self.HitTest(event.GetPosition())
         if res == wx.calendar.CAL_HITTEST_DAY:
             #now d contain clicked day
-            self.d_click = d
+            self.d_click = date
             menu = wx.Menu()
-            menu.Append(1, d.Format('%d %B'))
+            menu.Append(1, date.Format('%d %B'))
             menu.AppendSeparator()
             menu.AppendCheckItem(2, _('Beginning of cycle'))
-            menu.Check(2, is_set_mark(d, MARK_BEGIN, d.GetYear()))
+            menu.Check(2, is_set_mark(date, MARK_BEGIN, date.GetYear()))
             menu.AppendCheckItem(5, _('1-st tablet'))
-            menu.Check(5, is_set_mark(d, MARK_TABLET, d.GetYear()))
-            if is_set_mark(d, MARK_BEGIN, d.GetYear()):
+            menu.Check(5, is_set_mark(date, MARK_TABLET, date.GetYear()))
+            if is_set_mark(date, MARK_BEGIN, date.GetYear()):
                 menu.AppendCheckItem(3, _('Conception'))
-                menu.Check(3, is_set_mark(d, MARK_LAST, d.GetYear()))
+                menu.Check(3, is_set_mark(date, MARK_LAST, date.GetYear()))
             menu.AppendCheckItem(4, _('Note'))
-            menu.Check(4, is_set_mark(d, MARK_NOTE, d.GetYear()))
+            menu.Check(4, is_set_mark(date, MARK_NOTE, date.GetYear()))
             
             self.Bind(wx.EVT_MENU, self.OnBegin, id=2)
             self.Bind(wx.EVT_MENU, self.OnLast, id=3)
@@ -144,13 +142,10 @@ class Month_Cal(wx.calendar.CalendarCtrl):
         else:
             event.Skip()
             
-
-#-------------------- class Cal_Year -------------------
 class Cal_Year(wx.ScrolledWindow):
     """This class seems to bring everything together"""
     def __init__(self, parent):
         wx.ScrolledWindow.__init__(self, parent, -1)
-#        self.SetScrollbars(20, 20, 39, 40)
         self.SetBackgroundColour(wx.NamedColour('LIGHT BLUE'))
         
         dt = wx.DateTime_Today()
@@ -160,8 +155,6 @@ class Cal_Year(wx.ScrolledWindow):
         self.month = []
         Val.Cal = self
         self.Init_Year()
-#        self.Draw_Mark()
-
 
     def Inc_Year(self):
         self.year += 1
@@ -181,15 +174,14 @@ class Cal_Year(wx.ScrolledWindow):
         reset_mark(self.year)
         self.Draw_Mark()
 
-
     def Init_Year(self):
         """Draw calendar"""
         m = 0
         box = wx.BoxSizer(wx.VERTICAL)
         box.Add(wx.StaticLine(self, -1, style=wx.LI_HORIZONTAL), 0, wx.EXPAND )
-        for y in range(3):
+        for y in xrange(3):
             row_box = wx.BoxSizer(wx.HORIZONTAL)
-            for x in range(4):
+            for x in xrange(4):
                 t = wx.DateTimeFromDMY(1, m, self.year)
                 id = wx.NewId()
                 self.month.append(Month_Cal(self, id, t, ))
@@ -206,18 +198,22 @@ class Cal_Year(wx.ScrolledWindow):
         self.SetScrollbars(20, 20, w / 20, h / 20)
 
     def Draw_Year(self):
+        """Redraw calendar for a new year"""
         Val.frame.SetTitle(cycle.name + " - " + str(self.year))
-        for m in range(12):
-            t = wx.DateTimeFromDMY(1, m, self.year)
-            self.month[m].EnableYearChange(True)
-            self.month[m].EnableMonthChange(True)
-            self.month[m].SetDate(t)
-            self.month[m].EnableYearChange(False)
-            self.month[m].EnableMonthChange(False)
-            self.month[m].Refresh()
+        for m in self.month:
+            m.EnableYearChange(True)
+            m.EnableMonthChange(True)
+
+            date = m.getDate()
+            date.SetYear(self.year)
+            m.SetDate(date)
+
+            m.EnableYearChange(False)
+            m.EnableMonthChange(False)
+
+            m.Refresh()
 
     def Draw_Mark(self):
-        
         f_norm = self.month[1].GetFont()
         f_norm.SetUnderlined(False)
         f_ul = self.month[1].GetFont()
@@ -230,9 +226,9 @@ class Cal_Year(wx.ScrolledWindow):
         calc_fert(self.year)
         calc_tablet(self.year)
         k = 1
-        for m in range(12):
+        for m in xrange(12):
             sel_hide = True #need hide selection
-            for d in range(1, wx.DateTime_GetNumberOfDaysInMonth(m, self.year) + 1):
+            for d in xrange(1, wx.DateTime_GetNumberOfDaysInMonth(m, self.year) + 1):
                 can_hide = True
                 lab = cycle.mark.get(k, 0)
                 at = self.month[m].GetAttr(d)
@@ -298,8 +294,8 @@ class Cal_Year(wx.ScrolledWindow):
                 k += 1
 
         # so visual refresh is more fast
-        for m in range(12):
-            self.month[m].Refresh()
+        for m in self.month:
+            m.Refresh()
 
 
 #-------------------- work with cycle -------------------
@@ -317,14 +313,6 @@ class cycle:
     first_week_day = 0
     note = {}
     colour_set = {}
-#    colour_set = year_b=wx.DateTim{'begin':wx.NamedColour('red'),
-#        'prog begin':wx.NamedColour('pink'),
-#        'conception':wx.NamedColour('MAGENTA'),
-#        'fertile':wx.NamedColour('green yellow'),
-#        'ovule':wx.NamedColour('SPRING GREEN'),
-#        '1-st tablet':wx.NamedColour('gold'),
-#        'pause':wx.NamedColour('light blue'),
-#        'next 1-st tablet':wx.NamedColour('pink')}
 
 def min_max(i):
     """Return length max and min of 6 last cycles
@@ -334,7 +322,7 @@ def min_max(i):
         return cycle.period, cycle.period
 
     last_6 = []
-    for k in range(i, 0, -1):
+    for k in xrange(i, 0, -1):
         span = (cycle.begin[k] - cycle.begin[k - 1] + wx.TimeSpan.Hours(1)).GetDays()
         # wx.TimeSpan.Hours(1) 
         if 20 < span <36:
@@ -343,7 +331,7 @@ def min_max(i):
                 break
 
     if cycle.by_average and len(last_6) != 0:
-        s = float(reduce( operator.add, last_6)) # sum of last_6
+        s = float(reduce(operator.add, last_6)) # sum of last_6
         cycle.period = int(round(s / len(last_6), 0))
         
     if last_6 == []:
@@ -433,7 +421,6 @@ def calc_fert(year):
 
 def calc_tablet(year):
     """calculation result of using hormonal tablets"""
-    
     if cycle.tablet == []:
         return
     year_b = wx.DateTimeFromDMY(1, 0, year)
@@ -444,10 +431,10 @@ def calc_tablet(year):
             if (cycle.tablet[i + 1] - cycle.tablet[i] + wx.TimeSpan.Hours(1)).GetDays() < 28:
                 #incorrect using - must more 28 days
                 continue
-        for k in range(28):
+        for k in xrange(28):
             remove_mark(d + wx.DateSpan.Days(k), MARK_PROG | MARK_FERT |
             MARK_NEXT_TABLET | MARK_OVUL | MARK_SAFESEX | MARK_BIRTH, year)
-        for k in range(21, 28):
+        for k in xrange(21, 28):
             add_mark(d + wx.DateSpan.Days(k), MARK_T22_28, year)
         add_mark(d + wx.DateSpan.Days(28), MARK_NEXT_TABLET, year)
                 
@@ -577,6 +564,7 @@ def remove_note(date):
 
 #-------------------- Report --------------------
 def report_year(year):
+    """Create a HTML document that can be used by wxHtmlEasyPrinting"""
     if cycle.first_week_day == 0:
         calendar.setfirstweekday(calendar.MONDAY)
         days = range(1, 7) + [0]
@@ -590,7 +578,7 @@ def report_year(year):
         dn += '%.2s ' % wx.DateTime_GetWeekDayName(i, wx.DateTime.Name_Abbr)
     dn = dn[:-1]
     dn = '%s  %s  %s<br>\n' % (dn, dn, dn)  # week days names
-    for m in range(0, 12, 3):
+    for m in xrange(0, 12, 3):
         s += '<br>\n%s  %s  %s<br>\n' % (
             wx.DateTime_GetMonthName(m).center(20),
             wx.DateTime_GetMonthName(m + 1).center(20),
@@ -598,15 +586,15 @@ def report_year(year):
         s += dn
         data = []
         h = 0
-        for k in range(m + 1, m + 4):
+        for k in xrange(m + 1, m + 4):
             cal = calendar.monthcalendar(year, k)
             data.append( calendar.monthcalendar(year, k) )
             if h < len(cal):
                 h = len(cal)
-        for i in range(h):
+        for i in xrange(h):
             d_str = ''
-            for n in range(3):
-                for k in range(7):
+            for n in xrange(3):
+                for k in xrange(7):
                     if i < len(data[n]):
                         day_of_month = data[n][i][k]
                         if day_of_month:
@@ -627,6 +615,7 @@ def report_year(year):
     return s
 
 def report_year_ical(year, fileobj):
+    """Export year as an iCal file"""
     import socket
     hostname = socket.gethostname()
 
