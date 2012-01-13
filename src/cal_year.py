@@ -53,16 +53,16 @@ class Month_Cal(wx.calendar.CalendarCtrl):
         self.Bind(wx.EVT_LEFT_DOWN, self.OnLeftDown)
         self.Bind(wx.EVT_KEY_UP, self.OnKey)
         self.Bind(wx.EVT_KEY_DOWN, self.OnKey)
-        self.d_click = wx.DateTime() #FromDMY(1, 0, 2002)
+        self.d_click = wx.DateTime()
         
     def OnLeftDown(self, event):
         result, date, wday = self.HitTest(event.GetPosition())
-        if res == wx.calendar.CAL_HITTEST_DAY:
+        if result == wx.calendar.CAL_HITTEST_DAY:
             Val.frame.SetStatusText(info(date))
 
     def OnRightDown(self, event):
-        res, d, w = self.HitTest(event.GetPosition())
-        if res == wx.calendar.CAL_HITTEST_DAY:
+        result, date, wday = self.HitTest(event.GetPosition())
+        if result == wx.calendar.CAL_HITTEST_DAY:
             #now d contain clicked day
             self.d_click = date
             menu = wx.Menu()
@@ -113,10 +113,10 @@ class Month_Cal(wx.calendar.CalendarCtrl):
         txt = get_note(self.d_click)
         dlg = Note_Dlg(self, self.d_click.Format('%d %B'), txt)
         ret = dlg.ShowModal()
-        t = dlg.Get_Txt()
+        note = dlg.Get_Txt()
         dlg.Destroy()
         if ret == wx.ID_OK:
-            add_note(self.d_click, t )
+            add_note(self.d_click, note )
             add_mark(self.d_click, MARK_NOTE, self.d_click.GetYear())
         elif ret == False:
             remove_note(self.d_click)
@@ -148,8 +148,8 @@ class Cal_Year(wx.ScrolledWindow):
         wx.ScrolledWindow.__init__(self, parent, -1)
         self.SetBackgroundColour(wx.NamedColour('LIGHT BLUE'))
         
-        dt = wx.DateTime_Today()
-        self.year = dt.GetYear()
+        today = wx.DateTime_Today()
+        self.year = today.GetYear()
 
         self.day_of_year = []
         self.month = []
@@ -214,14 +214,15 @@ class Cal_Year(wx.ScrolledWindow):
             m.Refresh()
 
     def Draw_Mark(self):
+        #TODO: use some better variable names
         f_norm = self.month[1].GetFont()
         f_norm.SetUnderlined(False)
         f_ul = self.month[1].GetFont()
         f_ul.SetUnderlined(True)
 
-        dt = wx.DateTime_Today()
-        if self.year == dt.GetYear():
-            add_mark(dt, MARK_TODAY, self.year)
+        today = wx.DateTime_Today()
+        if self.year == today.GetYear():
+            add_mark(today, MARK_TODAY, self.year)
 
         calc_fert(self.year)
         calc_tablet(self.year)
@@ -241,8 +242,10 @@ class Cal_Year(wx.ScrolledWindow):
                 at.SetBackgroundColour(wx.WHITE)
                 at.SetTextColour(wx.BLACK)
                 at.SetFont(f_norm)
-                
+
+                #TODO: not needed, each month knows the date already
                 dt = wx.DateTimeFromDMY(d, m, self.year)
+
                 if not dt.IsWorkDay(): #mark weekend
                     at.SetTextColour(wx.NamedColour('firebrick'))
 
