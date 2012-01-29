@@ -5,11 +5,11 @@
 # Maintainer: Matt Molyneaux (moggers87+git@moggers87.co.uk)
 # Home page: http://moggers.co.uk/cgit/cycle.git/about
 #===================================================    
-"""READ
-http://eli.thegreenplace.net/2010/06/25/aes-encryption-of-files-in-python-with-pycrypto/
-http://www.python.org/dev/peps/pep-0272/
-and then remove this comment
-"""
+
+## READ ##
+# http://eli.thegreenplace.net/2010/06/25/aes-encryption-of-files-in-python-with-pycrypto/
+# http://www.python.org/dev/peps/pep-0272/
+# and then touch this code
 
 import wx
 import os, os.path , cPickle
@@ -145,7 +145,7 @@ def load_dict_format(data, password):
 
 #---------------------------------------------------------------------------
 def get_users():
-    #Get list of users
+    """Get list of users"""
     magic_str = 'UserName='
     users = [] #array of (user, file) name
     p, f_name = get_f_name()
@@ -173,7 +173,7 @@ def get_users():
 
 #-------------------------------------------------------
 def get_new_file_name():
-    #create filename for user
+    """Generate filename for user"""
     while True:
         random_chars = "".join(chr(random.randint(0,255)) for i in xrange(4))
         random_chars = base64.urlsafe_b64encode(random_chars)
@@ -183,6 +183,9 @@ def get_new_file_name():
 
 #-------------------------------------------------------
 def get_f_name(name=""):
+    """Get path for filename, then return directory path and full path.
+
+    I think."""
     p = os.path.expanduser("~/.cycle")
     f_name = os.path.join(p, name)
 

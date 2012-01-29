@@ -24,8 +24,6 @@ import __builtin__
 lang_find = False
 if not '__WXMSW__' in wx.PlatformInfo:
     for lang_env_var in ('LANGUAGE', 'LC_ALL', 'LC_CTYPE', 'LANG'):
-        if lang_find:
-            break
         if os.environ.has_key(lang_env_var):
             env_language = os.environ[lang_env_var]
             for s_lang in env_language.split(':'): # if set more languages
@@ -43,6 +41,8 @@ if not '__WXMSW__' in wx.PlatformInfo:
                     break #language was found
                 except:
                     pass
+        if lang_find:
+            break
 else: #for MS Windows
     try:
         dl = locale.getdefaultlocale()
@@ -61,8 +61,8 @@ if not lang_find:
     __builtin__.__dict__['_'] = lambda s: s
     lang = [""]
 
-
 class MyFrame(wx.Frame):
+    """Main window"""
     def __init__(self, parent, ID, title):
         wx.Frame.__init__(self, parent, ID, title,
                        wx.DefaultPosition, wx.Size(800, 600))
@@ -88,42 +88,42 @@ class MyFrame(wx.Frame):
         self.Close(True)
 
     def MakeToolMenu(self):
-        tb = self.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER)
-        tb.SetToolBitmapSize(wx.Size(24, 24))
+        toolbar = self.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER)
+        toolbar.SetToolBitmapSize(wx.Size(24, 24))
 
-        SetToolPath(self, tb, 10, os.path.join(bitmaps_dir, 'dec.png'), _('Dec Year'))
+        SetToolPath(self, toolbar, 10, os.path.join(bitmaps_dir, 'dec.png'), _('Dec Year'))
         wx.EVT_TOOL(self, 10, self.OnDecYear)
 
-        SetToolPath(self, tb, 20, os.path.join(bitmaps_dir, 'curr.png'), _('Current Year'))
+        SetToolPath(self, toolbar, 20, os.path.join(bitmaps_dir, 'curr.png'), _('Current Year'))
         wx.EVT_TOOL(self, 20, self.OnCurrent)
 
-        SetToolPath(self, tb, 30, os.path.join(bitmaps_dir, 'inc.png'), _('Inc Year'))
+        SetToolPath(self, toolbar, 30, os.path.join(bitmaps_dir, 'inc.png'), _('Inc Year'))
         wx.EVT_TOOL(self, 30, self.OnIncYear)
 
-        tb.SetToolSeparation(50)
-        tb.AddSeparator()
+        toolbar.SetToolSeparation(50)
+        toolbar.AddSeparator()
 
-        SetToolPath(self, tb, 40, os.path.join(bitmaps_dir, 'legend.png'), _('Legend'))
+        SetToolPath(self, toolbar, 40, os.path.join(bitmaps_dir, 'legend.png'), _('Legend'))
         wx.EVT_TOOL(self, 40, self.Legend)
         
-        SetToolPath(self, tb, 45, os.path.join(bitmaps_dir, 'export.png'), _('Export to iCal'))
+        SetToolPath(self, toolbar, 45, os.path.join(bitmaps_dir, 'export.png'), _('Export to iCal'))
         wx.EVT_TOOL(self, 45, self.Export)
         
-        SetToolPath(self, tb, 50, os.path.join(bitmaps_dir, 'set.png'), _('Settings'))
+        SetToolPath(self, toolbar, 50, os.path.join(bitmaps_dir, 'set.png'), _('Settings'))
         wx.EVT_TOOL(self, 50, self.Settings)
         
-        SetToolPath(self, tb, 55, os.path.join(bitmaps_dir, 'help.png'), _('Help'))
+        SetToolPath(self, toolbar, 55, os.path.join(bitmaps_dir, 'help.png'), _('Help'))
         wx.EVT_TOOL(self, 55, self.Info)
 
-        SetToolPath(self, tb, 57, os.path.join(bitmaps_dir, 'print.png'), _('Print'))
+        SetToolPath(self, toolbar, 57, os.path.join(bitmaps_dir, 'print.png'), _('Print'))
         wx.EVT_TOOL(self, 57, self.test)
 
-        tb.AddSeparator()
+        toolbar.AddSeparator()
 
-        SetToolPath(self, tb, 60, os.path.join(bitmaps_dir, 'exit.png'), _('Exit'))
+        SetToolPath(self, toolbar, 60, os.path.join(bitmaps_dir, 'exit.png'), _('Exit'))
         wx.EVT_TOOL(self, 60, self.TimeToQuit)
 
-        tb.Realize()
+        toolbar.Realize()
 
     def test(self, event):
         rpt = report_year(self.cal.year)
@@ -165,7 +165,6 @@ class MyFrame(wx.Frame):
         dlg = Help_Dlg(self, _('Help'), msg)
         dlg.ShowModal()
 
-
     # increment and decrement toolbar controls
     def OnIncYear(self, event):
         self.cal.Inc_Year()
@@ -176,16 +175,13 @@ class MyFrame(wx.Frame):
     def OnCurrent(self, event):
         self.cal.Set_Year(wx.DateTime_Today().GetYear())
 
-
-
-#----------------------------------------------
-def SetToolPath(self, tb, id, bmp, title):
+def SetToolPath(self, toolbar, id, bmp, title):
     global dir_path
-    tb.AddSimpleTool(id, wx.Bitmap(os.path.join(dir_path, bmp), wx.BITMAP_TYPE_PNG),
+    toolbar.AddSimpleTool(id, wx.Bitmap(os.path.join(dir_path, bmp), wx.BITMAP_TYPE_PNG),
                      title, title)
 
-
 class MyApp(wx.App):
+    """Show login screen, first login etc."""
     def OnInit(self):
         wx.lib.colourdb.updateColourDB()
         ret = first_login()
